@@ -15,5 +15,6 @@ public class Application {
     // 启动springboot应用
     SpringApplication.run(Application.class, args);
     // http://127.0.0.1:8080
+
   }
 }

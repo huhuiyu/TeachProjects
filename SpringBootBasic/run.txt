@@ -1,0 +1,17 @@
+rem 下面是设置java和gradle的环境变量
+set PATH=F:\MyDevelop\jdk8\bin;%PATH%
+set PATH=F:\MyDevelop\gradle-4.10.2\bin;%PATH%
+set JAVA_HOME=F:\MyDevelop\jdk8
+set GRADLE_HOME=F:\MyDevelop\gradle-4.10.2
+set GRADLE_USER_HOME=F:\MyDevelop\gradle-user-home
+rem 切换到d盘
+D:
+rem 切换到指定路径
+cd D:\Develop\github\huhuiyu\TeachProjects\SpringBootBasic
+rem 清理和打包项目
+call gradle clean
+call gradle build
+rem 切换到发布目录并启动springboot
+cd build\libs
+java -jar SpringBootBasic-1.0.0.0.jar
+pause
