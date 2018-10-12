@@ -3,6 +3,8 @@ package top.huhuiyu.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 /**
  * TbUser表
  * 
@@ -17,6 +19,7 @@ public class TbUser implements Serializable {
   private String password;
   private String nickname;
   private String isEnable;
+  @JSONField(format = "yyyy-MM-dd HH:mm:ss")
   private Date regDate;
 
   public TbUser() {
