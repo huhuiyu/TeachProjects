@@ -37,7 +37,6 @@ public class MyWebConfig implements WebMvcConfigurer {
     //使用FastJson作为json数据的转换器
     WebMvcConfigurer.super.configureMessageConverters(converters);
     FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
-    //TODO 这里需要配置json转换的细节
     converters.add(0, converter);
   }
 }

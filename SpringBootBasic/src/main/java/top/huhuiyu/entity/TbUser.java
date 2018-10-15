@@ -1,6 +1,5 @@
 package top.huhuiyu.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONField;
@@ -11,9 +10,9 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @author DarkKnight
  *
  */
-public class TbUser implements Serializable {
+public class TbUser extends EntityBase {
 
-  private static final long serialVersionUID = -5725225942248651055L;
+  private static final long serialVersionUID = 5313513234706312367L;
   private Integer uid;
   private String username;
   private String password;
@@ -32,12 +31,6 @@ public class TbUser implements Serializable {
     this.nickname = nickname;
     this.isEnable = isEnable;
     this.regDate = regDate;
-  }
-
-  @Override
-  public String toString() {
-    return "TbUser [uid=" + uid + ", username=" + username + ", password=" + password + ", nickname=" + nickname
-        + ", isEnable=" + isEnable + ", regDate=" + regDate + "]";
   }
 
   public Integer getUid() {

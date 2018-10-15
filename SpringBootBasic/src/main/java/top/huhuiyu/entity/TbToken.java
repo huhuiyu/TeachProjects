@@ -1,6 +1,5 @@
 package top.huhuiyu.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +8,7 @@ import java.util.Date;
  * @author DarkKnight
  *
  */
-public class TbToken implements Serializable {
+public class TbToken extends EntityBase {
 
   private static final long serialVersionUID = -2313018616200398517L;
   private String token;

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import top.huhuiyu.config.MyConfig;
 import top.huhuiyu.entity.Greeting;
+import top.huhuiyu.entity.JsonMessage;
 
 /**
  * Greeting控制器
@@ -15,24 +16,27 @@ import top.huhuiyu.entity.Greeting;
  *
  */
 @RestController
+@ResponseBody
 public class GreetingController {
   @Autowired
   private MyConfig myConfig;
 
   @RequestMapping(name = "")
-  public String index() {
+  public JsonMessage index() {
     // http://127.0.0.1:20000
-    return String.format("欢迎使用springboot,%s,%s"
-        , myConfig.appName, myConfig.reload);
+    String m = String.format("欢迎使用springboot,%s,%s", myConfig.appName, myConfig.reload);
+    JsonMessage message = JsonMessage.getSuccess(m);
+    return message;
   }
 
   @RequestMapping("/greeting")
-  @ResponseBody
-  public Greeting greeting(Greeting greeting) {
-    // http://127.0.0.1:8080/greeting
-    // http://127.0.0.1:8080/greeting?id=100
-    // http://127.0.0.1:8080/greeting?id=101&content=abc123
-    return greeting;
+  public JsonMessage greeting(Greeting greeting) {
+    // http://127.0.0.1:20000/greeting
+    // http://127.0.0.1:20000/greeting?id=100
+    // http://127.0.0.1:20000/greeting?id=101&content=abc123
+    JsonMessage message = JsonMessage.getSuccess("");
+    message.getDatas().put("greeting", greeting);
+    return message;
   }
 
 }
