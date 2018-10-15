@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import top.huhuiyu.dao.TbUserDAO;
+import top.huhuiyu.entity.JsonMessage;
 import top.huhuiyu.entity.TbUser;
 
 /**
@@ -18,6 +19,7 @@ import top.huhuiyu.entity.TbUser;
  */
 @RestController
 @RequestMapping("/test")
+@ResponseBody
 public class TestController {
 
   private static final Logger log = LoggerFactory.getLogger(TestController.class);
@@ -26,11 +28,18 @@ public class TestController {
   private TbUserDAO tbUserDAO;
 
   @RequestMapping("/login")
-  @ResponseBody
-  public TbUser login(TbUser user) throws Exception {
+  public JsonMessage login(TbUser user) throws Exception {
     // http://127.0.0.1:20000/test/login?username=test&password=test-pwd
-    log.info(String.valueOf(user));
-    return tbUserDAO.login(user);
+    log.debug(String.valueOf(user));
+    TbUser result = tbUserDAO.login(user);
+    // 判断是否正确登录
+    if (result == null) {
+      return JsonMessage.getFail("用户名或者密码错误，登录失败！");
+    } else {
+      JsonMessage message = JsonMessage.getSuccess("登录成功！");
+      message.getDatas().put("loginUser", result);
+      return message;
+    }
   }
 
 }
