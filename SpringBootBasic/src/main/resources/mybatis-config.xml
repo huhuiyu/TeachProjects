@@ -8,5 +8,7 @@
 	</typeAliases>
 	<mappers>
 		<mapper resource="top/huhuiyu/mapper/TbUser.xml" />
+    <mapper resource="top/huhuiyu/mapper/Utils.xml" />
+    <mapper resource="top/huhuiyu/mapper/TbToken.xml" />
 	</mappers>
 </configuration>

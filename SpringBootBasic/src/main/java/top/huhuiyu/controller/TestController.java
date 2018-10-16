@@ -30,6 +30,11 @@ public class TestController {
   @RequestMapping("/login")
   public JsonMessage login(TbUser user) throws Exception {
     // http://127.0.0.1:20000/test/login?username=test&password=test-pwd
+    // 日志的配置在application.yml里面，error>info>debug
+    // 尽可能都用debug，如果是异常信息用error，程序关键项可以用info
+    // 发布到服务器的时候需要开启file日志，级别可以升到error
+    log.error("error级别信息");
+    log.info("info级别信息");
     log.debug(String.valueOf(user));
     TbUser result = tbUserDAO.login(user);
     // 判断是否正确登录

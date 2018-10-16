@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- TbToken mapper -->
+<mapper namespace="top.huhuiyu.dao.TbTokenDAO">
+  <!-- 新增token -->
+  <insert id="addToken" parameterType="TbToken">
+    insert into TbToken(token,lastupdate) values(#{token},now())
+  </insert>
+  <!-- 更新token -->
+  <update id="updateToken" parameterType="TbToken">
+    update TbToken set lastupdate=now() where token=#{token}
+  </update>
+  <!-- 查询token是否存在且没有过期 -->
+  <select id="queryToken" parameterType="TbToken" resultType="TbToken">
+    select token,uid,lastupdate from TbToken
+    where token=#{token} and timestampdiff(minute,lastupdate,now()) &lt;= 3
+  </select>
+
+</mapper>

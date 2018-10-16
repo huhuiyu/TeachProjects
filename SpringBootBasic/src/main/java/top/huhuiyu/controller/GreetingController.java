@@ -21,7 +21,7 @@ public class GreetingController {
   @Autowired
   private MyConfig myConfig;
 
-  @RequestMapping(name = "")
+  @RequestMapping(name = "/")
   public JsonMessage index() {
     // http://127.0.0.1:20000
     String m = String.format("欢迎使用springboot,%s,%s", myConfig.appName, myConfig.reload);
