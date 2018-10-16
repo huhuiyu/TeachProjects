@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import top.huhuiyu.dao.TbTokenDAO;
+import top.huhuiyu.entity.JsonMessage;
 import top.huhuiyu.entity.TbToken;
 import top.huhuiyu.service.TokenService;
 
@@ -24,35 +25,44 @@ public class TokenServiceImpl implements TokenService {
   @Autowired
   private TbTokenDAO tbTokenDAO;
 
-  public TbToken createToken(TbToken token) throws Exception {
+  /**
+   * 创建一个新的token
+   * 
+   * @return
+   * @throws Exception
+   */
+  private JsonMessage makeNewToken() throws Exception {
+    // 通过uuid生成随机的token
+    String t = UUID.randomUUID().toString();
+    TbToken stoken = new TbToken();
+    stoken.setToken(t);
+    // 保存到数据库
+    tbTokenDAO.addToken(stoken);
+    JsonMessage message = JsonMessage.getSuccess("");
+    message.getDatas().put("token", stoken.getToken());
+    return message;
+  }
+
+  @Override
+  public JsonMessage createToken(TbToken token) throws Exception {
     // 1：查询token是否存在
     // 传入token基本校验
     // 2:不存在要创建
     if (token == null || token.getToken() == null) {
-      // 通过uuid生成随机的token
-      String t = UUID.randomUUID().toString();
-      TbToken stoken = new TbToken();
-      stoken.setToken(t);
-      // 保存到数据库
-      tbTokenDAO.addToken(stoken);
-      return stoken;
+      return makeNewToken();
     }
     // 数据库校验
     // 2：不存在要创建
     TbToken stoken = tbTokenDAO.queryToken(token);
     if (stoken == null) {
-      // 通过uuid生成随机的token
-      String t = UUID.randomUUID().toString();
-      stoken = new TbToken();
-      stoken.setToken(t);
-      // 保存到数据库
-      tbTokenDAO.addToken(stoken);
-      return stoken;
+      return makeNewToken();
     }
     // 3：存在就更新
     tbTokenDAO.updateToken(stoken);
     // 4：返回token
-    return stoken;
+    JsonMessage message = JsonMessage.getSuccess("");
+    message.getDatas().put("token", stoken.getToken());
+    return message;
   }
 
 }
