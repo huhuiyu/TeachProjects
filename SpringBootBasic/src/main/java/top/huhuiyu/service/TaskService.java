@@ -17,5 +17,8 @@ public interface TaskService {
    */
   void showTimeOnce();
 
+  /**
+   * 删除所有过期的token
+   */
   void deleteTokens();
 }

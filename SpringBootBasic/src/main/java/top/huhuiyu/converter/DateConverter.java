@@ -20,19 +20,19 @@ public class DateConverter implements Converter<String, Date> {
   /**
    * 1-短格式日期
    */
-  private static final SimpleDateFormat sdfShort = new SimpleDateFormat("yyyy-MM-dd");
+  private static final SimpleDateFormat SDF_SHORT = new SimpleDateFormat("yyyy-MM-dd");
   /**
    * 2-长格式日期
    */
-  private static final SimpleDateFormat sdfLong = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+  private static final SimpleDateFormat SDF_LONG = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
   /**
    * 1-短日期正则
    */
-  private static final Pattern pshort = Pattern.compile("^\\d{4}[-]\\d{2}[-]\\d{2}$");
+  private static final Pattern PSHORT = Pattern.compile("^\\d{4}[-]\\d{2}[-]\\d{2}$");
   /**
    * 2-长日期正则
    */
-  private static final Pattern plong = Pattern.compile("^\\d{4}[-]\\d{2}[-]\\d{2} \\d{2}:\\d{2}:\\d{2}$");
+  private static final Pattern PLONG = Pattern.compile("^\\d{4}[-]\\d{2}[-]\\d{2} \\d{2}:\\d{2}:\\d{2}$");
 
   @Override
   public Date convert(String source) {
@@ -41,12 +41,12 @@ public class DateConverter implements Converter<String, Date> {
     }
     source = MyUtils.trim(source);
     try {
-      if (plong.matcher(source).matches()) {
+      if (PLONG.matcher(source).matches()) {
         // 长日期格式
-        return sdfLong.parse(source);
-      } else if (pshort.matcher(source).matches()) {
+        return SDF_LONG.parse(source);
+      } else if (PSHORT.matcher(source).matches()) {
         // 短日期格式
-        return sdfShort.parse(source);
+        return SDF_SHORT.parse(source);
       }
     } catch (Exception ex) {
     }

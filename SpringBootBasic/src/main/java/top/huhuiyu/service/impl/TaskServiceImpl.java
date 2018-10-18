@@ -28,18 +28,18 @@ public class TaskServiceImpl implements TaskService {
   private UtilsDAO utilsDAO;
   @Autowired
   private TbTokenDAO tbTokenDAO;
-  private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+  private static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
   @Scheduled(initialDelay = 1000 * 5, fixedDelay = 60 * 60 * 1000)
   @Override
   public void showTime() {
-    log.debug(String.format("数据库当前时间：%s", sdf.format(utilsDAO.queryTime())));
+    log.debug(String.format("数据库当前时间：%s", SDF.format(utilsDAO.queryTime())));
   }
 
   @Scheduled(cron = "0 18,19,20 9 * * ? ")
   @Override
   public void showTimeOnce() {
-    log.debug(String.format("整点报时：%s", sdf.format(utilsDAO.queryTime())));
+    log.debug(String.format("整点报时：%s", SDF.format(utilsDAO.queryTime())));
   }
 
   @Override
