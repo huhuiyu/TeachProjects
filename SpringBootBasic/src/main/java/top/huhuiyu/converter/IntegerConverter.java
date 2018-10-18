@@ -21,7 +21,7 @@ public class IntegerConverter implements Converter<String, Integer> {
     }
     source = MyUtils.trim(source);
     try {
-      return Integer.getInteger(source);
+      return Integer.parseInt(source);
     } catch (Exception ex) {
     }
     return null;

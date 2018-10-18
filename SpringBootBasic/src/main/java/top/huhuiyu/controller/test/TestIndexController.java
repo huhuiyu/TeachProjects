@@ -42,4 +42,13 @@ public class TestIndexController {
     }
   }
 
+  @RequestMapping("/converter")
+  public JsonMessage converter(TestEntity test) throws Exception {
+    // http://127.0.0.1:20000/test/converter
+    //  ?info=abc&tint=123&tdouble=290.89&tdec=345.8&tdate=1998-09-11 12:13:14
+    JsonMessage json = JsonMessage.getSuccess("");
+    json.getDatas().put("entity", test);
+    return json;
+  }
+
 }
