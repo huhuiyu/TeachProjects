@@ -26,7 +26,7 @@ public class TokenServiceImpl implements TokenService {
   private TbTokenDAO tbTokenDAO;
 
   /**
-   * 创建一个新的token
+   * makeNewToken-创建一个新的token
    * 
    * @return
    * @throws Exception

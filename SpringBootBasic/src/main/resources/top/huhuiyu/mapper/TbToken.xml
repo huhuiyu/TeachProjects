@@ -17,5 +17,8 @@
     select token,uid,lastupdate from TbToken
     where token=#{token} and timestampdiff(minute,lastupdate,now()) &lt;= 3
   </select>
-
+  <!-- 删除过期的token -->
+  <delete id="deleteTokens">
+    delete from TbToken where timestampdiff(minute,lastupdate,now()) &gt; 3
+  </delete>
 </mapper>

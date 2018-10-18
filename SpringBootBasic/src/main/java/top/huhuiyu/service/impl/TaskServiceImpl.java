@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import top.huhuiyu.dao.TbTokenDAO;
 import top.huhuiyu.dao.UtilsDAO;
 import top.huhuiyu.service.TaskService;
 
@@ -25,6 +26,8 @@ public class TaskServiceImpl implements TaskService {
   private static final Logger log = LoggerFactory.getLogger(TaskServiceImpl.class);
   @Autowired
   private UtilsDAO utilsDAO;
+  @Autowired
+  private TbTokenDAO tbTokenDAO;
   private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
   @Scheduled(initialDelay = 1000 * 5, fixedDelay = 60 * 60 * 1000)
@@ -37,6 +40,20 @@ public class TaskServiceImpl implements TaskService {
   @Override
   public void showTimeOnce() {
     log.debug(String.format("整点报时：%s", sdf.format(utilsDAO.queryTime())));
+  }
+
+  @Override
+  @Scheduled(initialDelay = 3 * 1000, fixedDelay = 5 * 60 * 1000)
+  public void deleteTokens() {
+    log.debug("正在启动删除过期token任务");
+    int result;
+    try {
+      result = tbTokenDAO.deleteTokens();
+    } catch (Exception e) {
+      log.error("删除过期token任务发送错误", e);
+      result = 0;
+    }
+    log.debug("删除过期token任务完成：" + result);
   }
 
 }

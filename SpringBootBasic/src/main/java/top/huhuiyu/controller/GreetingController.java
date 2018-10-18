@@ -17,13 +17,14 @@ import top.huhuiyu.entity.JsonMessage;
  */
 @RestController
 @ResponseBody
+@RequestMapping("/greeting")
 public class GreetingController {
   @Autowired
   private MyConfig myConfig;
 
-  @RequestMapping(name = "/")
+  @RequestMapping(name = "/index")
   public JsonMessage index() {
-    // http://127.0.0.1:20000
+    // http://127.0.0.1:20000/greeting/index
     String m = String.format("欢迎使用springboot,%s,%s", myConfig.appName, myConfig.reload);
     JsonMessage message = JsonMessage.getSuccess(m);
     return message;
@@ -31,9 +32,9 @@ public class GreetingController {
 
   @RequestMapping("/greeting")
   public JsonMessage greeting(Greeting greeting) {
-    // http://127.0.0.1:20000/greeting
-    // http://127.0.0.1:20000/greeting?id=100
-    // http://127.0.0.1:20000/greeting?id=101&content=abc123
+    // http://127.0.0.1:20000/greeting/greeting
+    // http://127.0.0.1:20000/greeting/greeting?id=100
+    // http://127.0.0.1:20000/greeting/greeting?id=101&content=abc123
     JsonMessage message = JsonMessage.getSuccess("");
     message.getDatas().put("greeting", greeting);
     return message;

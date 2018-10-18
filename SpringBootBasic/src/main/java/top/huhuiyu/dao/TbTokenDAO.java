@@ -18,26 +18,37 @@ import top.huhuiyu.entity.TbToken;
 @Mapper
 public interface TbTokenDAO {
   /**
-   * 添加token
+   * addToken-添加token
    * 
    * @param token
    * @return
+   * @throws Exception
    */
   int addToken(TbToken token) throws Exception;
 
   /**
-   * 更新token时间
+   * updateToken-更新token时间
    * 
    * @param token
    * @return
+   * @throws Exception
    */
   int updateToken(TbToken token) throws Exception;
 
   /**
-   * 查询token是否存在
+   * queryToken-查询token是否存在
    * 
    * @param token
    * @return
+   * @throws Exception
    */
   TbToken queryToken(TbToken token) throws Exception;
+
+  /**
+   * deleteTokens-删除过期的token
+   * 
+   * @return
+   * @throws Exception
+   */
+  int deleteTokens() throws Exception;
 }
