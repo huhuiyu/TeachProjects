@@ -10,5 +10,7 @@
 		<mapper resource="top/huhuiyu/mapper/TbUser.xml" />
     <mapper resource="top/huhuiyu/mapper/Utils.xml" />
     <mapper resource="top/huhuiyu/mapper/TbToken.xml" />
+    
+    <mapper resource="top/huhuiyu/mapper/Test.xml" />
 	</mappers>
 </configuration>

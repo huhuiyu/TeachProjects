@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import top.huhuiyu.entity.JsonMessage;
 import top.huhuiyu.entity.TbToken;
 import top.huhuiyu.exception.AppException;
+import top.huhuiyu.service.TestService;
 import top.huhuiyu.service.TokenService;
 
 /**
@@ -24,12 +25,13 @@ public class TestIndexController {
   private static final String OK = "ok";
   private static final String TWO = "two";
   private static final String ONE = "one";
-  
+
   @Autowired
   private TokenService tokenService;
 
   @RequestMapping("/createToken")
   public JsonMessage createToken(TbToken token) throws Exception {
+    // http://127.0.0.1:20000/test/createToken
     return tokenService.createToken(token);
   }
 
@@ -80,6 +82,14 @@ public class TestIndexController {
     JsonMessage json = JsonMessage.getSuccess("");
     json.getDatas().put("model", model);
     return json;
+  }
+
+  @Autowired
+  private TestService testService;
+
+  @RequestMapping("/page")
+  public JsonMessage page() throws Exception {
+    return testService.queryTokens();
   }
 
 }
