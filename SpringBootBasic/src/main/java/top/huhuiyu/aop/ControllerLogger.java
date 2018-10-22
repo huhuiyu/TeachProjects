@@ -3,6 +3,7 @@ package top.huhuiyu.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -59,6 +60,7 @@ public class ControllerLogger {
 
   /**
    * After表示切点方法执行完之后
+   * 
    * @param jp
    */
   @After("pointcut()")
@@ -68,6 +70,7 @@ public class ControllerLogger {
 
   /**
    * AfterReturning表示切点返回后，所以要多一个参数returning来获取方法的返回值
+   * 
    * @param jp
    * @param result
    */
@@ -75,5 +78,10 @@ public class ControllerLogger {
   public void returning(JoinPoint jp, Object result) {
     log.debug(String.format("%s的返回值%s", jp.getSignature(), result));
   }
+
+//  @AfterThrowing(pointcut = "pointcut()", throwing = "ex")
+//  public void returning(JoinPoint jp, Throwable ex) {
+//    log.debug(String.format("%s发生错误%s", jp.getSignature(), ex));
+//  }
 
 }
