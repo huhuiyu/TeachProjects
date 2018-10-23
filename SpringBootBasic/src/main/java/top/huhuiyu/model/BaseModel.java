@@ -1,6 +1,6 @@
 package top.huhuiyu.model;
 
-import top.huhuiyu.entity.EntityBase;
+import top.huhuiyu.entity.BaseEntity;
 import top.huhuiyu.entity.TbToken;
 
 /**
@@ -9,7 +9,7 @@ import top.huhuiyu.entity.TbToken;
  * @author DarkKnight
  *
  */
-public abstract class BaseModel extends EntityBase {
+public abstract class BaseModel extends BaseEntity {
 
   private static final long serialVersionUID = -9188998793975747208L;
 

@@ -8,7 +8,7 @@ import java.util.Date;
  * @author DarkKnight
  *
  */
-public class TbToken extends EntityBase {
+public class TbToken extends BaseEntity {
 
   private static final long serialVersionUID = -2313018616200398517L;
   private String token;

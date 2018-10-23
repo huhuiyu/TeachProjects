@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSONObject;
  * @author DarkKnight
  *
  */
-public class EntityBase implements Serializable {
+public class BaseEntity implements Serializable {
 
   private static final long serialVersionUID = 8614491069185899739L;
 

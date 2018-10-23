@@ -88,8 +88,9 @@ public class TestIndexController {
   private TestService testService;
 
   @RequestMapping("/page")
-  public JsonMessage page() throws Exception {
-    return testService.queryTokens();
+  public JsonMessage page(TestModel model) throws Exception {
+    // http://127.0.0.1:20000/test/page?page.pageSize=5&page.pageNumber=1
+    return testService.queryTokens(model.getPage());
   }
 
 }

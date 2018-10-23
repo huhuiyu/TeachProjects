@@ -5,7 +5,7 @@ import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-import top.huhuiyu.entity.EntityBase;
+import top.huhuiyu.entity.BaseEntity;
 
 /**
  * converter测试实体类
@@ -13,7 +13,7 @@ import top.huhuiyu.entity.EntityBase;
  * @author DarkKnight
  *
  */
-public class TestEntity extends EntityBase {
+public class TestEntity extends BaseEntity {
 
   private static final long serialVersionUID = -4894183489321781263L;
 

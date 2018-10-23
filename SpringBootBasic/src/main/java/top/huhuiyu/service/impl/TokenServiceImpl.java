@@ -10,6 +10,7 @@ import top.huhuiyu.dao.TbTokenDAO;
 import top.huhuiyu.entity.JsonMessage;
 import top.huhuiyu.entity.TbToken;
 import top.huhuiyu.service.TokenService;
+import top.huhuiyu.utils.MyUtils;
 
 /**
  * TbToken的服务 Transactional表示开启事务处理，表示类中的方法调用dao处理数据会在事务中，
@@ -27,7 +28,7 @@ public class TokenServiceImpl implements TokenService {
 
   /**
    * makeNewToken-创建一个新的token
-   * 
+   * SpringBootMybatisBase
    * @return
    * @throws Exception
    */
@@ -63,6 +64,36 @@ public class TokenServiceImpl implements TokenService {
     JsonMessage message = JsonMessage.getSuccess("");
     message.getDatas().put("token", stoken.getToken());
     return message;
+  }
+
+  /**
+   * -创建新Token
+   * 
+   * @return
+   * @throws Exception
+   */
+  private TbToken newToken() throws Exception {
+    TbToken token = new TbToken();
+    token.setToken(UUID.randomUUID().toString());
+    tbTokenDAO.addToken(token);
+    return token;
+  }
+
+  @Override
+  public TbToken checkTbToken(TbToken token) throws Exception {
+    // 客戶端沒有传入token就需要创建新的token
+    if (token == null || MyUtils.isEmpty(token.getToken())) {
+      return newToken();
+    }
+    // 查看token是否存在
+    TbToken stoken = tbTokenDAO.queryToken(token);
+    if (stoken == null) {
+      // 不存在就重新创建
+      return newToken();
+    }
+    // 存在就更新
+    tbTokenDAO.updateToken(stoken);
+    return stoken;
   }
 
 }

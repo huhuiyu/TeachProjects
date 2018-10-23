@@ -9,7 +9,7 @@ import java.util.Map;
  * @author DarkKnight
  *
  */
-public class JsonMessage extends EntityBase {
+public class JsonMessage extends BaseEntity {
 
   private static final long serialVersionUID = 6263151224945333453L;
   /**
@@ -28,6 +28,19 @@ public class JsonMessage extends EntityBase {
    * success：服务器是否正确应答，默认为false
    */
   private boolean success = false;
+
+  /**
+   * -服务器token信息
+   */
+  private String token;
+  
+  public String getToken() {
+    return token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
 
   /**
    * getMessage：静态工厂方法，获取一个JsonMessage的实例

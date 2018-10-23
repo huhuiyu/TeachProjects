@@ -1,6 +1,6 @@
 package top.huhuiyu.controller.test;
 
-import top.huhuiyu.model.BaseModel;
+import top.huhuiyu.model.BasePageModel;
 
 /**
  * TestModel-测试用的model层，model层可以组合不同的数据传输，以适配页面不同的数据模型
@@ -8,7 +8,7 @@ import top.huhuiyu.model.BaseModel;
  * @author DarkKnight
  *
  */
-public class TestModel extends BaseModel {
+public class TestModel extends BasePageModel {
 
   private static final long serialVersionUID = 4734230327560640256L;
 
