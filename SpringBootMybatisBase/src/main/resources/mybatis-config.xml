@@ -3,14 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<typeAliases>
-		<package name="top.huhuiyu.entity" />
-	</typeAliases>
-	<mappers>
-		<mapper resource="top/huhuiyu/mapper/TbUser.xml" />
-    <mapper resource="top/huhuiyu/mapper/Utils.xml" />
-    <mapper resource="top/huhuiyu/mapper/TbToken.xml" />
+  <typeAliases>
+    <package name="top.huhuiyu.springbootmybatisbase.entity" />
+  </typeAliases>
+  <mappers>
+    <mapper resource="top/huhuiyu/springbootmybatisbase/mapper/Utils.xml" />
     
-    <mapper resource="top/huhuiyu/mapper/Test.xml" />
-	</mappers>
+  </mappers>
 </configuration>
