@@ -1,0 +1,12 @@
+1-项目要被git忽略的文件和目录
+  .classpath
+  .gradle
+  bin
+  build
+  gradle
+  logs
+2-项目构建文件build.gradle，更新该文件需要执行guadle-->refresh更新项目依赖
+3-项目中src/main/resources需要创建出来并通过执行Build Path-->use as source加入到源码目录
+        该目录是放置项目配置文件
+4-项目中src/test目录只会在开发环境中执行，不会出现在build结果中，是用于放置测试的类
+ 
