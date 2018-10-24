@@ -9,4 +9,8 @@
 3-项目中src/main/resources需要创建出来并通过执行Build Path-->use as source加入到源码目录
         该目录是放置项目配置文件
 4-项目中src/test目录只会在开发环境中执行，不会出现在build结果中，是用于放置测试的类
- 
+5-resources中application.yml和application.properties是springboot核心配置文件
+6-resources中mybatis.xml是mybatis核心配置文件
+7-resources中mapper包下面是mybatis的mapper配置文件（sql和对象映射文件）
+8-entity包是实体类
+9-dao包是mapper对应的数据库访问类
