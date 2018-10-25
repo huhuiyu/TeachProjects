@@ -22,6 +22,7 @@ public class IndexController {
   @RequestMapping("")
   public JsonMessage index(IndexModel model) throws Exception {
     // http://127.0.0.1:20000/?echo=abc-123&token=
+    // http://127.0.0.1:20000 {"echo":"abc-123"}
     return indexService.index(model);
   }
 }
