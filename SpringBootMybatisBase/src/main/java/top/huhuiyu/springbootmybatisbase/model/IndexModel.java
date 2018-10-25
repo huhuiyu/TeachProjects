@@ -1,6 +1,6 @@
 package top.huhuiyu.springbootmybatisbase.model;
 
-import top.huhuiyu.springbootmybatisbase.base.BaseEntity;
+import top.huhuiyu.springbootmybatisbase.base.BaseModel;
 
 /**
  * -首页model层
@@ -8,11 +8,11 @@ import top.huhuiyu.springbootmybatisbase.base.BaseEntity;
  * @author DarkKnight
  *
  */
-public class IndexModel extends BaseEntity {
+public class IndexModel extends BaseModel {
 
   private static final long serialVersionUID = 5502595957810189939L;
   private String echo;
-  
+
   public IndexModel() {
   }
 
@@ -23,5 +23,5 @@ public class IndexModel extends BaseEntity {
   public void setEcho(String echo) {
     this.echo = echo;
   }
-  
+
 }

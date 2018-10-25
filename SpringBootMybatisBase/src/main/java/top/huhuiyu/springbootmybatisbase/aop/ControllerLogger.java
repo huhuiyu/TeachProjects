@@ -42,7 +42,7 @@ public class ControllerLogger extends AppPointCut {
 
   @AfterReturning(pointcut = "controller()", returning = "result")
   public void returning(JoinPoint jp, Object result) {
-    log.debug(String.format("%s返回值：", jp.getSignature(), result));
+    log.debug(String.format("%s返回值：%s", jp.getSignature(), result));
   }
 
 }

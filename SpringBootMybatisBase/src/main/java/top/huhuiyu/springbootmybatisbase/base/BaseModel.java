@@ -1,5 +1,7 @@
 package top.huhuiyu.springbootmybatisbase.base;
 
+import top.huhuiyu.springbootmybatisbase.entity.TbToken;
+
 /**
  * -model层基类
  * 
@@ -19,6 +21,17 @@ public abstract class BaseModel extends BaseEntity {
 
   public void setToken(String token) {
     this.token = token;
+  }
+
+  /**
+   * -获取token的委托方法
+   * 
+   * @return
+   */
+  public TbToken getTbToken() {
+    TbToken tbToken = new TbToken();
+    tbToken.setToken(token);
+    return tbToken;
   }
 
 }

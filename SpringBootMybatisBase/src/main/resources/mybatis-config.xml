@@ -8,6 +8,6 @@
   </typeAliases>
   <mappers>
     <mapper resource="top/huhuiyu/springbootmybatisbase/mapper/Utils.xml" />
-    
+    <mapper resource="top/huhuiyu/springbootmybatisbase/mapper/TbToken.xml" />
   </mappers>
 </configuration>
