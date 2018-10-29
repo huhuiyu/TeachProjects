@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Test mapper -->
+<mapper namespace="top.huhuiyu.springbootmybatisbase.dao.TestDAO">
+  
+  <!-- 测试事务的两个添加方法 -->
+  <insert id="addTokenInfo" parameterType="TbTokenInfo">
+    insert into TbTokenInfo(token,infoKey,info,lastupdate)
+    values(#{token},#{infoKey},#{info},now())
+  </insert>
+
+  <insert id="addToken" parameterType="TbToken">
+    insert into TbToken(token,uid,lastupdate) values(#{token},null,now())
+  </insert>
+
+</mapper>

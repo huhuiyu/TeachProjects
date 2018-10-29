@@ -17,6 +17,7 @@ import top.huhuiyu.springbootmybatisbase.utils.JsonMessage;
 @RestController
 @RequestMapping("/test")
 public class TestController implements NeedLogin {
+
   private TbUser user;
 
   @Override
@@ -39,5 +40,7 @@ public class TestController implements NeedLogin {
     message.getDatas().put("user", user);
     return message;
   }
+
+
 
 }

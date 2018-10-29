@@ -9,6 +9,9 @@
   <mappers>
     <mapper resource="top/huhuiyu/springbootmybatisbase/mapper/Utils.xml" />
     <mapper resource="top/huhuiyu/springbootmybatisbase/mapper/TbToken.xml" />
+    <mapper resource="top/huhuiyu/springbootmybatisbase/mapper/TbTokenInfo.xml" />
     <mapper resource="top/huhuiyu/springbootmybatisbase/mapper/TbUser.xml" />
+    
+    <mapper resource="top/huhuiyu/springbootmybatisbase/mapper/Test.xml" />
   </mappers>
 </configuration>
