@@ -15,8 +15,17 @@ public class TestModel extends BaseModel {
 
   private TbToken ctoken = new TbToken();
   private TbTokenInfo tokenInfo = new TbTokenInfo();
+  private String imageCode = "";
 
   public TestModel() {
+  }
+
+  public String getImageCode() {
+    return imageCode;
+  }
+
+  public void setImageCode(String imageCode) {
+    this.imageCode = imageCode;
   }
 
   public TbToken getCtoken() {

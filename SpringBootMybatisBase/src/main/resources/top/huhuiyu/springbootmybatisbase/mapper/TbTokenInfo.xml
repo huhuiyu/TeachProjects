@@ -18,4 +18,25 @@
     )
     )
   </delete>
+
+  <!-- 图片校验码相关 -->
+  <insert id="addImageCode" parameterType="TbTokenInfo">
+    insert into TbTokenInfo(token,infoKey,info,lastupdate)
+    values(#{token},'imagecode',#{info},now())
+  </insert>
+
+  <select id="queryImageCode" parameterType="TbTokenInfo" resultType="TbTokenInfo">
+    select token,infoKey,info,lastupdate from TbTokenInfo
+    where token=#{token} and infoKey='imagecode'
+  </select>
+
+  <update id="updateImageCode" parameterType="TbTokenInfo">
+    update TbTokenInfo set info=#{info},lastupdate=now()
+    where token=#{token} and infoKey='imagecode'
+  </update>
+
+  <delete id="deleteImageCode" parameterType="TbTokenInfo">
+    delete from TbTokenInfo where token=#{token} and infoKey='imagecode'
+  </delete>
+
 </mapper>
