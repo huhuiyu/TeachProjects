@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- TbUser mapper -->
+<mapper namespace="top.huhuiyu.springbootmybatisbase.dao.TbUserDAO">
+
+  <select id="queryByName" parameterType="TbUser" resultType="TbUser">
+    select uid,username,password,nickname,isEnable,regDate from TbUser
+    where username = #{username}
+  </select>
+
+  <select id="queryByToken" parameterType="TbToken" resultType="TbUser">
+    select uid,username,password,nickname,isEnable,regDate
+    from TbUser where uid =
+    (select uid from TbToken where token=#{token})
+  </select>
+
+</mapper>
