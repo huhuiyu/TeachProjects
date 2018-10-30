@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
       return JsonMessage.getFail("密码错误");
     }
     // 需要将登录信息保存到token表
-    TbToken token = model.getTbToken();
+    TbToken token = model.makeTbToken();
     token.setUid(suser.getUid());
     int result = tbTokenDAO.userLogin(token);
     // 如果数据库更新的结果不是预期效果需要通过抛出异常打断流程，回滚事务！！！！
@@ -60,13 +60,13 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public JsonMessage logout(UserModel model) throws Exception {
-    tbTokenDAO.userLogout(model.getTbToken());
+    tbTokenDAO.userLogout(model.makeTbToken());
     return JsonMessage.getSuccess("退出成功");
   }
 
   @Override
   public JsonMessage getUserInfo(UserModel model) throws Exception {
-    TbUser user = tbUserDAO.queryByToken(model.getTbToken());
+    TbUser user = tbUserDAO.queryByToken(model.makeTbToken());
     // 不要返回uid给客户端
     if (user != null) {
       user.setUid(null);

@@ -45,7 +45,7 @@ public class ControllerToken extends AppPointCut {
       // 只有传入参数带Model才能处理token信息
       if (arg instanceof BaseModel) {
         BaseModel model = (BaseModel) arg;
-        TbToken token = model.getTbToken();
+        TbToken token = model.makeTbToken();
         // 校验并更新token信息
         token = tokenService.checkToken(token);
         model.setToken(token.getToken());
@@ -79,7 +79,7 @@ public class ControllerToken extends AppPointCut {
     // 需要登录的情况
     NeedLogin needLogin = (NeedLogin) pjp.getTarget();
     // 查询登录用户信息
-    TbUser user = tbUserDAO.queryByToken(model.getTbToken());
+    TbUser user = tbUserDAO.queryByToken(model.makeTbToken());
     // 不存在的情况
     if (user == null) {
       return JsonMessage.getFail(NeedLogin.NOT_LOGIN, "需要登录");
