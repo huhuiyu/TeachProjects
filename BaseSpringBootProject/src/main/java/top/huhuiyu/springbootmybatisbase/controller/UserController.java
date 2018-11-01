@@ -22,19 +22,19 @@ public class UserController {
 
   @RequestMapping("/login")
   public JsonMessage login(UserModel model) throws Exception {
-    // http://127.0.0.1:20000/user/login?token=e777557d-95c7-4972-9b63-ec1902dd0c60&user.username=test&user.password=test-pwd
+    // /user/login {"user.username":"","user.password":"test-pwd"}
     return userService.login(model);
   }
 
   @RequestMapping("/logout")
   public JsonMessage logout(UserModel model) throws Exception {
-    // http://127.0.0.1:20000/user/logout?token=e777557d-95c7-4972-9b63-ec1902dd0c60
+    // /user/logout {}
     return userService.logout(model);
   }
 
   @RequestMapping("/getUserInfo")
   public JsonMessage getUserInfo(UserModel model) throws Exception {
-    // http://127.0.0.1:20000/user/getUserInfo?token=e777557d-95c7-4972-9b63-ec1902dd0c60
+    // /user/getUserInfo {}
     return userService.getUserInfo(model);
   }
 

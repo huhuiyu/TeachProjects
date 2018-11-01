@@ -40,7 +40,6 @@ public class TestOtherController {
 
   @RequestMapping("/imageCode")
   public JsonMessage imageCode(TestModel model) throws Exception {
-    // http://127.0.0.1:20000/test/imageCode?token=&imageCode=
     // 获取图片校验码
     TbTokenInfo info = model.makeTbTokenInfo();
     info.setInfo(model.getImageCode());

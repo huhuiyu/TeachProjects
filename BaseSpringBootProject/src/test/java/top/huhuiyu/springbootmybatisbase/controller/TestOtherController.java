@@ -33,14 +33,14 @@ public class TestOtherController {
    */
   @RequestMapping("/tran")
   public JsonMessage tran(TestModel model) throws Exception {
-    // http://127.0.0.1:20000/test/tran?token=&ctoken.token=abcdefg&tokenInfo.infoKey=abc123&tokenInfo.info=dddd
+    // /test/tran {"ctoken.token":"","tokenInfo.infoKey":"","tokenInfo.info":""}
     model.getTokenInfo().setToken(model.getCtoken().getToken());
     return testService.tranAdd(model);
   }
 
   @RequestMapping("/imageCode")
   public JsonMessage imageCode(TestModel model) throws Exception {
-    // http://127.0.0.1:20000/test/imageCode?token=&imageCode=
+    // /test/imageCode {"imageCode":""}
     // 获取图片校验码
     TbTokenInfo info = model.makeTbTokenInfo();
     info.setInfo(model.getImageCode());
