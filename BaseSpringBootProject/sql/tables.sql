@@ -27,11 +27,10 @@ create table TbUser
   regDate timestamp default now() not null comment '注册时间'
 );
 
-/* 用户Token追踪表 */
+/* token追踪表 */
 create table TbToken
 (
   token varchar(50) primary key comment '令牌值，自然主键',
-  uid int comment '令牌对应的用户，可以是null，表示用户还没有登录',
   lastupdate timestamp comment '令牌环最后更新时间'
 );
 

@@ -7,13 +7,14 @@
 
   <select id="queryByName" parameterType="TbUser" resultType="TbUser">
     select uid,username,password,nickname,isEnable,regDate from TbUser
-    where username = #{username}
+    where username = #{username} and isEnable='y'
   </select>
 
   <select id="queryByToken" parameterType="TbToken" resultType="TbUser">
     select uid,username,password,nickname,isEnable,regDate
-    from TbUser where uid =
-    (select uid from TbToken where token=#{token})
+    from TbUser where uid = 
+    (select info from TbTokenInfo where token=#{token} and infoKey='user')
+    and isEnable='y'
   </select>
 
 </mapper>

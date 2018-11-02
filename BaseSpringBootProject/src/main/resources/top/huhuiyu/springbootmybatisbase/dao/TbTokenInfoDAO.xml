@@ -38,5 +38,25 @@
   <delete id="deleteImageCode" parameterType="TbTokenInfo">
     delete from TbTokenInfo where token=#{token} and infoKey='imagecode'
   </delete>
+  
+  <!-- 用户登录相关 -->
+  <insert id="addUser" parameterType="TbTokenInfo">
+    insert into TbTokenInfo(token,infoKey,info,lastupdate)
+    values(#{token},'user',#{info},now())
+  </insert>
+
+  <select id="queryUser" parameterType="TbTokenInfo" resultType="TbTokenInfo">
+    select token,infoKey,info,lastupdate from TbTokenInfo
+    where token=#{token} and infoKey='user'
+  </select>
+
+  <update id="updateUser" parameterType="TbTokenInfo">
+    update TbTokenInfo set info=#{info},lastupdate=now()
+    where token=#{token} and infoKey='user'
+  </update>
+
+  <delete id="deleteUser" parameterType="TbTokenInfo">
+    delete from TbTokenInfo where token=#{token} and infoKey='user'
+  </delete>
 
 </mapper>

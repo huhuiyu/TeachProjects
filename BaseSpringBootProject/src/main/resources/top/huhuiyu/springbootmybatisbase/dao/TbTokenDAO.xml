@@ -6,7 +6,7 @@
 <mapper namespace="top.huhuiyu.springbootmybatisbase.dao.TbTokenDAO">
   <!-- 查询token（且要有效） -->
   <select id="queryToken" parameterType="TbToken" resultType="TbToken">
-    select token,uid,lastupdate from TbToken
+    select token,lastupdate from TbToken
     where token=#{token} and timestampdiff(minute,lastupdate,now())
     &lt;=
     (select configValue from TbConfig where configKey='token.timeout')
@@ -28,17 +28,5 @@
     &gt;
     (select configValue from TbConfig where configKey='token.timeout')
   </delete>
-
-  <!-- 标记用户上线 -->
-  <update id="userLogin" parameterType="TbToken">
-    update TbToken set uid=#{uid},lastupdate=now() where token=#{token}
-  </update>
-  
-  <!-- 标记用户下线 -->
-  <update id="userLogout" parameterType="TbToken">
-    update TbToken set uid=null,lastupdate=now() where token=#{token}
-  </update>
-  
-  
 
 </mapper>

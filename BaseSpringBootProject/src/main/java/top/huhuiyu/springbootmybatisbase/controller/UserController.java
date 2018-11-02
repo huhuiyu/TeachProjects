@@ -22,7 +22,7 @@ public class UserController {
 
   @RequestMapping("/login")
   public JsonMessage login(UserModel model) throws Exception {
-    // /user/login {"user.username":"","user.password":"test-pwd"}
+    // /user/login {"user.username":"test","user.password":"test-pwd"}
     return userService.login(model);
   }
 

@@ -13,9 +13,10 @@ insert into TbConfig(configKey,configValue,lastupdate) values('token.timeout','1
 
 /* 默认测试用户 */
 insert into TbUser(username,password,nickname) values('test','test-pwd','测试用户');
+insert into TbUser(username,password,nickname) values('guest','guest-pwd','测试用户');
 
 /* 查询 */
 select configKey,configValue,lastupdate from TbConfig;
 select uid,username,password,nickname,isEnable,regDate from TbUser;
-select token,uid,lastupdate from TbToken;
+select token,lastupdate from TbToken;
 select token,infoKey,info,lastupdate from TbTokenInfo;

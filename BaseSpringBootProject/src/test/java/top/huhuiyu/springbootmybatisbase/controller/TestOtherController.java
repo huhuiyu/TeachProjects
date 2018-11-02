@@ -94,8 +94,9 @@ public class TestOtherController {
     info.setFilesize(file.getSize());
     // 获取上传文件的扩展名
     String ext = "";
-    if (info.getFilename().indexOf(".") > -1) {
-      int index = info.getFilename().lastIndexOf(".");
+    String strExt = ".";
+    if (info.getFilename().indexOf(strExt) > -1) {
+      int index = info.getFilename().lastIndexOf(strExt);
       ext = info.getFilename().substring(index);
     }
     // 生成uuid为保存的文件地址
