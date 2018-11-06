@@ -20,3 +20,5 @@
 /BaseSpringBootProject/build
 /BaseSpringBootProject/gradle
 /BaseSpringBootProject/uploadfiles
+/WebBasic/node_modules
+/WebBasic/.vscode

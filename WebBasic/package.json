@@ -1,0 +1,11 @@
+{
+  "name": "web-basic",
+  "version": "1.0.0",
+  "description": "web项目基础",
+  "author": "黑暗骑士",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bootstrap3": "^3.3.5",
+    "jquery": "^3.3.1"
+  }
+}
