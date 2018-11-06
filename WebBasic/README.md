@@ -47,3 +47,15 @@
   - 在项目根目录创建[jsconfig.json](jsconfig.json)文件
   - `exclude`小节是配置忽略的文件或者目录的列表，一定要将`node_modules`目录排除，该目录是nodejs插件目录，也不要将该目录添加到git中
   - `typeAcquisition`小节是配置要js提示的api列表
+
+- vscode插件安装
+  - Chinese(Simplified) Language Pack for Visual Studio Code （简体中文语言包）
+  - Bracket Pair Colorizer (括号着色配对插件)
+  - HTML CSS Support （html文件中css类名称支持插件）
+  - Markdown All in One （markdown(md)文件编辑预览插件）
+  - markdownlint （markdown文件语法检查插件）
+  - nginx.conf （nginx配置文件插件）
+  - nginx-formatter （nginx格式化插件）
+  - open in browser （在浏览器中打开插件）
+  - Prettier - Code formatter （代码格式化插件）
+  - VSCode Great Icons （一套vscode图标库，在文件图标主题中使用）
