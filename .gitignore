@@ -22,3 +22,6 @@
 /BaseSpringBootProject/uploadfiles
 /WebBasic/node_modules
 /WebBasic/.vscode
+/WebBasic/test
+/WebBasic/nginx/logs
+/WebBasic/nginx/temp
