@@ -45,17 +45,30 @@
   - 安装成功，`package.json`中`dependencies`小节中会出现 bootstrap 版本号，项目`node_modules`目录中也会出现 bootstrap3
 - 配置 js 提示
   - 在项目根目录创建[jsconfig.json](jsconfig.json)文件
-  - `exclude`小节是配置忽略的文件或者目录的列表，一定要将`node_modules`目录排除，该目录是nodejs插件目录，也不要将该目录添加到git中
-  - `typeAcquisition`小节是配置要js提示的api列表
-
-- vscode插件安装
+  - `exclude`小节是配置忽略的文件或者目录的列表，一定要将`node_modules`目录排除，该目录是 nodejs 插件目录，也不要将该目录添加到 git 中
+  - `typeAcquisition`小节是配置要 js 提示的 api 列表
+- vscode 插件安装
   - Chinese(Simplified) Language Pack for Visual Studio Code （简体中文语言包）
   - Bracket Pair Colorizer (括号着色配对插件)
-  - HTML CSS Support （html文件中css类名称支持插件）
+  - HTML CSS Support （html 文件中 css 类名称支持插件）
   - Markdown All in One （markdown(md)文件编辑预览插件）
-  - markdownlint （markdown文件语法检查插件）
-  - nginx.conf （nginx配置文件插件）
-  - nginx-formatter （nginx格式化插件）
+  - markdownlint （markdown 文件语法检查插件）
+  - nginx.conf （nginx 配置文件插件）
+  - nginx-formatter （nginx 格式化插件）
   - open in browser （在浏览器中打开插件）
   - Prettier - Code formatter （代码格式化插件）
-  - VSCode Great Icons （一套vscode图标库，在文件图标主题中使用）
+  - VSCode Great Icons （一套 vscode 图标库，在文件图标主题中使用）
+- 安装前端相关开发 nodejs 插件
+  - 执行`cnpm --save install gulp`安装 gulp 依赖
+  - 执行`cnpm --save install del`安装 del（文件删除插件）依赖
+  - 执行`cnpm --save install gulp-file-sync`安装 gulp-file-sync（文件同步插件）依赖
+  - 执行`cnpm --save install gulp-watch`安装 gulp-watch（文件变化检测插件）依赖
+  - 执行`cnpm --save install gulp-concat`安装 gulp-concat（文件合并插件）依赖
+  - 执行`cnpm --save install gulp-jshint`安装 gulp-jshint（js 语法插件）依赖
+  - 执行`cnpm --save install gulp-uglify`安装 gulp-uglify（js 混淆插件）依赖
+  - 执行`cnpm --save install gulp-plumber`安装 gulp-plumber（gulp 错误冒泡插件）依赖
+  - 执行`cnpm --save install gulp-clean-css`安装 gulp-clean-css（css 压缩插件）依赖
+  - 执行`cnpm --save install gulp-sourcemaps`安装 gulp-sourcemaps（map 文件插件）依赖
+- 项目初始化
+  - 创建[gulpfile.js](gulpfile.js)(gulp 任务配置)文件
+  - 第三方依赖文件复制
