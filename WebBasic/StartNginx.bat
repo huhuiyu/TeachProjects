@@ -1,4 +1,4 @@
-rem NginxStart.bat
+rem StartNginx.bat
 set PATH=F:\MyDevelop\nginx-1.14.0;%PATH%
 rem %~dp0 is current dir
 set BASE_DIR=%~dp0

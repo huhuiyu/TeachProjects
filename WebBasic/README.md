@@ -69,6 +69,11 @@
   - 执行`cnpm --save install gulp-plumber`安装 gulp-plumber（gulp 错误冒泡插件）依赖
   - 执行`cnpm --save install gulp-clean-css`安装 gulp-clean-css（css 压缩插件）依赖
   - 执行`cnpm --save install gulp-sourcemaps`安装 gulp-sourcemaps（map 文件插件）依赖
-- 项目初始化
-  - 创建[gulpfile.js](gulpfile.js)(gulp 任务配置)文件
-  - 第三方依赖文件复制
+- 项目开发脚本
+  - 执行`StartDev.bat`启动开发模式（开启nginx,打开浏览器，开启项目dev）
+  - `gulp dev`的窗口通过按键`Ctrl+C`后输入`y`中断执行后关闭
+  - `browser.js`的窗口可以直接关闭
+  - `StartNginx`的窗口需要执行`StopNginx.bat`中断执行后关闭
+  - 如果`gulp dev`意外中断只要单独执行`StartWatch.bat`重新开启
+  - 如果`StartNginx`意外中断还是需要先执行`StopNginx.bat`确认中断后再执行`StartNginx.bat`重新开启
+  - 如果浏览器关闭需要执行`StartBrowser.bat`重新开启
