@@ -78,3 +78,46 @@ gulp.task('dev', ['build'], function() {
 gulp.task('build', ['libs', 'app'], function() {
   console.log('项目构建');
 });
+
+//测试其它知识点==================================================
+// js语法检测插件
+const jshint = require('gulp-jshint');
+//js混淆插件
+const uglify = require('gulp-uglify');
+//管道错误处理插件，避免错误打断程序
+const plumber = require('gulp-plumber');
+//css混淆插件
+const cssmin = require('gulp-clean-css');
+
+//js相关 gulp test-js
+gulp.task('test-js', function() {
+  gulp
+    .src('test/js/**/*.js')
+    .pipe(plumber())
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .pipe(concat('app.min.js'))
+    .pipe(uglify())
+    .pipe(plumber.stop())
+    .pipe(gulp.dest('test/build/'));
+});
+
+//watch测试目录js，gulp watch-test
+gulp.task('watch-test', function() {
+  //检测js文件
+  watch(['test/js/**/*.js'], function() {
+    //发生变化后就启动'test-js'任务
+    gulp.start('test-js');
+  });
+});
+
+//合并压缩css文件，gulp test-css
+gulp.task('test-css', function() {
+  gulp
+    .src(['test/css/**/*.css'])
+    .pipe(plumber())
+    .pipe(concat('app.min.css'))
+    .pipe(cssmin())
+    .pipe(plumber.stop())
+    .pipe(gulp.dest('test/build/'));
+});

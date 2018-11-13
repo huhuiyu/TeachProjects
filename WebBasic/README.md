@@ -64,16 +64,22 @@
   - 执行`cnpm --save install gulp-file-sync`安装 gulp-file-sync（文件同步插件）依赖
   - 执行`cnpm --save install gulp-watch`安装 gulp-watch（文件变化检测插件）依赖
   - 执行`cnpm --save install gulp-concat`安装 gulp-concat（文件合并插件）依赖
-  - 执行`cnpm --save install gulp-jshint`安装 gulp-jshint（js 语法插件）依赖
+  - 执行`cnpm --save install jshint gulp-jshint`安装 gulp-jshint（js 语法插件）依赖
   - 执行`cnpm --save install gulp-uglify`安装 gulp-uglify（js 混淆插件）依赖
   - 执行`cnpm --save install gulp-plumber`安装 gulp-plumber（gulp 错误冒泡插件）依赖
   - 执行`cnpm --save install gulp-clean-css`安装 gulp-clean-css（css 压缩插件）依赖
   - 执行`cnpm --save install gulp-sourcemaps`安装 gulp-sourcemaps（map 文件插件）依赖
 - 项目开发脚本
-  - 执行`StartDev.bat`启动开发模式（开启nginx,打开浏览器，开启项目dev）
+  - 执行`StartDev.bat`启动开发模式（开启 nginx,打开浏览器，开启项目 dev）
   - `StartWatch.bat`的窗口通过按键`Ctrl+C`后输入`y`中断执行后关闭
   - `StartBrowser.bat`的窗口可以直接关闭
   - `StartNginx.bat`的窗口需要执行`StopNginx.bat`中断执行后关闭
   - 如果`StartWatch.bat`意外中断只要单独执行`StartWatch.bat`重新开启
   - 如果`StartNginx.bat`意外中断还是需要先执行`StopNginx.bat`确认中断后再执行`StartNginx.bat`重新开启
   - 如果浏览器关闭需要执行`StartBrowser.bat`重新开启
+- 项目 clone 下来后的初始化步骤
+  - 确保[软件安装和配置](#软件安装和配置)的步骤已经执行
+  - 修改`browser.js`中的浏览器位置为正确的本机位置
+  - 修改`StartNginx.bat`和`StopNginx.bat`中的 nginx 的位置为正确的本机位置
+  - 执行`cnpm install`初始化插件和依赖
+  - 执行`gulp build`指令初始化项目后即可进入`项目开发脚本`的步骤启动开发模式
