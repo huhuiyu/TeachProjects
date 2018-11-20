@@ -1,8 +1,8 @@
 $(function() {
   //后台数据访问服务 dataservice.js
   var service = {};
-  //服务器基础url
-  var serverBaseUrl = '';
+  //服务器基础url http://127.0.0.1:20000
+  var serverBaseUrl = '/dataService';
 
   //设置服务器基础url
   service.setBaseUrl = function(baseurl) {

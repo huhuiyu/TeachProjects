@@ -1,6 +1,45 @@
 $(function() {
   console.log('in index.js');
 
+  //用户信息面板=================================
+
+  /**
+   * 获取用户信息
+   */
+  function getUserInfo() {
+    dataService.send('/user/getUserInfo', {}, function(data) {
+      if (data.datas && data.datas.user) {
+        //用户已经登录的情况
+        var user = data.datas.user;
+        $('#spUserinfo').html('欢迎：' + user.nickname + '-' + user.username);
+        $('#spUserinfo').show();
+        $('#btnLogout').show();
+      } else {
+        $('#toLogin').show();
+      }
+    });
+  }
+  /**
+   * 重置用户信息面板
+   */
+  function resetUserInfo() {
+    $('#spUserinfo').hide();
+    $('#btnLogout').hide();
+    $('#toLogin').hide();
+    getUserInfo();
+  }
+  resetUserInfo();
+
+  $('#toLogin').click(function() {
+    location.href = 'login.html';
+  });
+
+  $('#btnLogout').click(function() {
+    dataService.send('/user/logout', {}, function(data) {
+      resetUserInfo();
+    });
+  });
+
   $('#btnAjax').click(function() {
     //加载本地存储中的serverToken
     var serverToken = localStorage.getItem('serverToken');
