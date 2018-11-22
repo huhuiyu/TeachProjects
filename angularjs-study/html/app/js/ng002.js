@@ -11,13 +11,22 @@
     controllers.controller('CtrlOne', [
       '$scope',
       '$log',
-      function($scope, $log) {
+      '$sce',
+      function($scope, $log, $sce) {
         $log.debug('in CtrlOne init...');
         //定义作用域变量
         $scope.welcome = '欢迎使用angularjs';
         //定义作用域方法
         $scope.showWelcome = function() {
           alert($scope.welcome);
+        };
+
+        $scope.info = '';
+
+        //计算属性值
+        $scope.computeInfo = function() {
+          //$sce.trustAsHtml()表示将内容渲染成html，且不用安全检测;
+          return $sce.trustAsHtml('计算过的info：<br>' + $scope.info);
         };
       }
     ]);

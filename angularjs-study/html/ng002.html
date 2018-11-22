@@ -11,19 +11,17 @@
     <!-- ng-controller="CtrlOne" 是将元素和js控制器关联，避免了id冲突 -->
     <div ng-controller="CtrlOne">
       <!-- 在控制器声明的元素里面可以直接访问$scope声明的对象以及方法 -->
-      <input type="text" ng-model="welcome">
+      <input type="text" ng-model="welcome" />
       <span class="btn btn-primary" ng-click="showWelcome();">显示welcome</span>
       <div class="bg-primary h1" ng-bind="welcome"></div>
 
-    </div>
+      <!-- 如果加入了ngSanitize模块，可以使用ng-bind-html显示html渲染结果 -->
+      <textarea cols="30" rows="10" ng-model="info"></textarea>
+      <div class="bg-danger" ng-bind-html="info"></div>
+      <div class="bg-primary" ng-bind="info"></div>
+      <div class="bg-warning" ng-bind-html="computeInfo()"></div>
 
-    <div ng-controller="CtrlOne">
-        <!-- 在控制器声明的元素里面可以直接访问$scope声明的对象以及方法 -->
-        <input type="text" ng-model="welcome">
-        <span class="btn btn-primary" ng-click="showWelcome();">显示welcome</span>
-        <div class="bg-primary h1" ng-bind="welcome"></div>
-  
-      </div>
+    </div>
 
     <script src="lib/js/jquery.min.js"></script>
     <script src="lib/js/bootstrap.min.js"></script>
