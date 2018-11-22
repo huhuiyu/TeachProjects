@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>jquery easyui</title>
+    <link rel="stylesheet" href="css/lib.min.css" />
+    <link rel="stylesheet" href="easyui/easyui.css" />
+    <link rel="stylesheet" href="easyui/icon.css" />
+    <style></style>
+  </head>
+  <body>
+    <div>
+      <div class="easyui-calendar" style="width:250px;height:250px;"></div>
+    </div>
+
+    <h2>Basic Combo</h2>
+    <p>
+      Click the right arrow button to show drop down panel that can be filled
+      with any content.
+    </p>
+    <div style="margin:20px 0"></div>
+    <div
+      class="easyui-panel"
+      style="width:100%;max-width:400px;padding:30px 60px;"
+    >
+      <div style="margin-bottom:20px">
+        <input id="cc" style="width:100%;" />
+      </div>
+    </div>
+    <div id="sp">
+      <div style="line-height:22px;background:#fafafa;padding:5px;">
+        Select a language
+      </div>
+      <div style="padding:10px">
+        <input type="radio" name="lang" value="01" /><span>Java</span><br />
+        <input type="radio" name="lang" value="02" /><span>C#</span><br />
+        <input type="radio" name="lang" value="03" /><span>Ruby</span><br />
+        <input type="radio" name="lang" value="04" /><span>Basic</span><br />
+        <input type="radio" name="lang" value="05" /><span>Fortran</span>
+      </div>
+    </div>
+    <hr />
+    <h2>手风琴效果</h2>
+    <p>点击可以折叠</p>
+    <div style="margin:20px 0 10px 0;"></div>
+    <div class="easyui-accordion" style="width:500px;height:300px;">
+      <div
+        title="关于"
+        data-options="iconCls:'icon-ok'"
+        style="overflow:auto;padding:10px;"
+      >
+        <h3 style="color:#0099FF;">jquery的手风琴</h3>
+        <p>手风琴是jquery easyui中一个组件，可以提供分页显示效果</p>
+      </div>
+      <div
+        title="帮助"
+        data-options="iconCls:'icon-help'"
+        style="padding:10px;"
+      >
+        <p>
+          就是一堆的废话balabala。。。。
+        </p>
+      </div>
+      <div
+        title="树形菜单"
+        data-options="iconCls:'icon-search'"
+        style="padding:10px 0;"
+      >
+        <ul class="easyui-tree">
+          <li>
+            <span>食物</span>
+            <ul>
+              <li>
+                <span>水果</span>
+                <ul>
+                  <li>苹果</li>
+                  <li>橘子</li>
+                </ul>
+              </li>
+              <li>
+                <span>蔬菜</span>
+                <ul>
+                  <li>西红柿</li>
+                  <li>圣女果</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="js/lib.min.js"></script>
+    <script src="easyui/jquery.easyui.min.js"></script>
+    <script src="easyui/easyui-lang-zh_CN.js"></script>
+    <script src="js/easyui.js"></script>
+  </body>
+</html>

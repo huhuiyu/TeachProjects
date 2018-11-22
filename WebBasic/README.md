@@ -38,7 +38,7 @@
   - 9:license:(ISC):版权协议
   - 10:Is this OK?(yes):确认完成
   - 执行完成项目里面会出现 package.json，可以直接修改该文件
-- 安装 jquery 和 bootstrap3
+- 安装 jquery、bootstrap3
   - 执行`cnpm --save install jquery`安装 jquery
   - 安装成功，`package.json`中`dependencies`小节中会出现 jquery 版本号，项目`node_modules`目录中也会出现 jquery
   - 执行`cnpm --save install bootstrap3`安装 bootstrap3

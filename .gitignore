@@ -26,3 +26,4 @@
 /WebBasic/nginx/logs
 /WebBasic/nginx/temp
 /WebBasic/dist
+/WebBasic/package-lock.json
