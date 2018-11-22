@@ -28,6 +28,32 @@
           //$sce.trustAsHtml()表示将内容渲染成html，且不用安全检测;
           return $sce.trustAsHtml('计算过的info：<br>' + $scope.info);
         };
+
+        //支持json对象作为属性
+        $scope.mycompute = {
+          numa: 19,
+          numb: 23
+        };
+
+        //自定义方法也接受参数传递
+        $scope.showMyCompute = function(info) {
+          $log.debug('参数：', info);
+          $log.debug('mycompute：', $scope.mycompute);
+        };
+
+        //数组数据的渲染
+        $scope.list = [
+          { id: 100, name: '山一重工' },
+          { id: 101, name: '山二轻工' }
+        ];
+
+        $scope.addData = {};
+
+        //添加到集合的方法
+        $scope.addDataToList = function() {
+          $scope.list.push($scope.addData);
+          $scope.addData = {};
+        };
       }
     ]);
 

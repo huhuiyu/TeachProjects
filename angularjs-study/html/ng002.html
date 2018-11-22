@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,6 +21,36 @@
       <div class="bg-primary" ng-bind="info"></div>
       <div class="bg-warning" ng-bind-html="computeInfo()"></div>
 
+      <!-- json对象也支持 -->
+      <input type="text" ng-model="mycompute.numa">
+      乘
+      <input type="text" ng-model="mycompute.numb">
+      的结果是
+      <span ng-bind="mycompute.numa*mycompute.numb"></span>
+      <span class="btn btn-primary" ng-click="showMyCompute('参数值就是我')">显示json对象</span>
+      <div>
+        第一个数:<span ng-bind="mycompute.numa"></span>
+        <br>
+        第二个数:<span ng-bind="mycompute.numb"></span>
+      </div>
+
+      <table class="table table-bordered table-hover">
+        <tr>
+          <td>编号</td>
+          <td>名称</td>
+        </tr>
+        <!-- 
+          ng-repeat可以循环处理数组
+          data in list表示循环list变量，每次获取到的数据给data变量
+         -->
+        <tr ng-repeat="data in list">
+          <td ng-bind="data.id"></td>
+          <td ng-bind="data.name"></td>
+        </tr>
+      </table>
+      编号：<input type="text" ng-model="addData.id">
+      名称：<input type="text" ng-model="addData.name">
+      <span class="btn btn-primary" ng-click="addDataToList();">添加</span>
     </div>
 
     <script src="lib/js/jquery.min.js"></script>
