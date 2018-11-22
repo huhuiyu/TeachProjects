@@ -1,0 +1,13 @@
+{
+  "name": "angularjs-study",
+  "version": "1.0.0",
+  "description": "angularjs基础知识学习",
+  "author": "黑暗骑士",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "angular": "^1.7.5",
+    "angular-sanitize": "^1.7.5",
+    "bootstrap3": "^3.3.5",
+    "jquery": "^3.3.1"
+  }
+}

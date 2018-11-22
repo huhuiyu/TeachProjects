@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- ng-app表示绑定元素为angular的app -->
+<html ng-app>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>angularjs基础一</title>
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <!-- ng-model表示将输入的值和mymodel绑定 -->
+    <input type="text" ng-model="mymodel">
+    <!-- {{mymodel}}表示显示mymodel的值 -->
+    {{mymodel}}
+    <hr>
+    <textarea cols="80" rows="5" ng-model="txtInfo"></textarea>
+    <!-- 
+      ng-bind="txtInfo"表示将txtInfo的值渲染到元素里面，
+      ng-bind会将html转义输出，不会体现html效果，这是为了防止跨站脚本攻击
+    -->
+    <div ng-bind="txtInfo"></div>
+
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script src="lib/js/angular.min.js"></script>
+    <script src="app/js/ng001.js"></script>
+  </body>
+</html>

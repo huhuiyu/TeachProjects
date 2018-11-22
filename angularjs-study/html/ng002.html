@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>angularjs基础二</title>
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <!-- ng-controller="CtrlOne" 是将元素和js控制器关联，避免了id冲突 -->
+    <div ng-controller="CtrlOne">
+      <!-- 在控制器声明的元素里面可以直接访问$scope声明的对象以及方法 -->
+      <input type="text" ng-model="welcome">
+      <span class="btn btn-primary" ng-click="showWelcome();">显示welcome</span>
+      <div class="bg-primary h1" ng-bind="welcome"></div>
+
+    </div>
+
+    <div ng-controller="CtrlOne">
+        <!-- 在控制器声明的元素里面可以直接访问$scope声明的对象以及方法 -->
+        <input type="text" ng-model="welcome">
+        <span class="btn btn-primary" ng-click="showWelcome();">显示welcome</span>
+        <div class="bg-primary h1" ng-bind="welcome"></div>
+  
+      </div>
+
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/angular-sanitize.min.js"></script>
+    <script src="app/js/ng002.js"></script>
+  </body>
+</html>
