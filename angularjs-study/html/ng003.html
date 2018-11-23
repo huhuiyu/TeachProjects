@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>angularjs基础三</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>angularjs基础三</title>
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div ng-controller="MyCtrl">
+      <div class="jumbotron text-center">
+        <div class="h1" ng-bind="welcome"></div>
+        <div style="width:30%;margin:0px auto;">
+          <!-- mvvm框架完美的地方就在于提供了模板来呈现数据，对美工没有破坏和侵入 -->
+          <select ng-model="selectId" class="form-control">
+            <!-- ng-value可以绑定元素的value值，表单元素特有 -->
+            <option ng-repeat="d in list" ng-value="d.id" ng-bind="d.name"></option>
+          </select>
+        </div>
+        <div>选择的学历id:{{selectId}}</div>
+      </div>
+    </div>
+
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <!-- 下面的次序必须严格遵守，在实际项目中会交给gulp这样的构建工具控制 -->
+    <!-- 首先是框架 -->
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/angular-sanitize.min.js"></script>
+    <!-- 然后是初始化 -->
+    <script src="app/js/init.js"></script>
+    <!-- 然后是业务逻辑 -->
+    <script src="app/js/ng003.js"></script>
+    <!-- 然后是ng绑定启动 -->
+    <script src="app/js/startup.js"></script>
+  </body>
 </html>
