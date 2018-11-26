@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--
+      $rootScope声明的变量要用$root.访问，以区分全局和局部
+      $scope中的变量不能超出控制器的范围
+    -->
+    <title>{{ $root.appTitle }}-{{ appTitle }}</title>
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+  </head>
+  <body ng-controller="MyCtrl">
+    <div>{{ appTitle }}</div>
+    <div>
+      <label> 
+        <input type="checkbox" ng-model="mycheck" /> 是否显示？ 
+      </label>
+      {{ mycheck }}
+    </div>
+    <!--
+      逻辑判断控制显示
+      ng-if="逻辑值或者逻辑表达式"
+      值为true就出现，false就移除
+    -->
+    <hr />
+    <div ng-if="mycheck" class="bg-primary">选中了会显示出来</div>
+    <div ng-if="!mycheck" class="bg-danger">选中了不会显示出来</div>
+
+    <div>
+      <label for="cvalue">checkbox和ng-value配合</label>
+      <input type="checkbox" id="cvalue">
+      {{cvalue}}
+    </div>
+
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/angular-sanitize.min.js"></script>
+    <script src="app/js/init.js"></script>
+    <!-- 业务逻辑js开始 -->
+    <script src="app/js/ng005.js"></script>
+    <!-- 业务逻辑js结束 -->
+    <script src="app/js/startup.js"></script>
+  </body>
+</html>
