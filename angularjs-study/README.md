@@ -4,4 +4,4 @@
 
 ## 项目初始化
 
-- 控制台执行`cnpm --save install bootstrap3 jquery angular angular-sanitize`安装第三方库
+- 控制台执行`cnpm --save install bootstrap3 jquery angular angular-sanitize angular-route angular-messages angular-animate`安装第三方库

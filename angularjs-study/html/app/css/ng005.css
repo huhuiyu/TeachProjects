@@ -1,0 +1,71 @@
+.myinc {
+  position: relative;
+}
+
+.myani {
+  left: 0px;
+}
+
+.myani.ng-enter {
+  position: absolute;
+  width: 100%;
+  animation: myani-in 0.5s;
+}
+
+.myani.ng-leave {
+  position: absolute;
+  width: 100%;
+  animation: myani-out 0.5s;
+}
+
+@keyframes myani-in {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes myani-out {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.bg-primary,
+.bg-danger {
+  font-size: 2rem;
+  opacity: 1;
+}
+
+.bg-primary.ng-enter,
+.bg-danger.ng-enter {
+  animation: showfont 0.5s;
+}
+
+.bg-primary.ng-hide,
+.bg-danger.ng-hide {
+  animation: inout 0.5s;
+}
+
+@keyframes showfont {
+  0% {
+    font-size: 4rem;
+  }
+  100% {
+    font-size: 2rem;
+  }
+}
+
+@keyframes inout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

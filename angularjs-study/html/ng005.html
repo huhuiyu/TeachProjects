@@ -10,6 +10,7 @@
     -->
     <title>{{ $root.appTitle }}-{{ appTitle }}</title>
     <link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="app/css/ng005.css" />
   </head>
   <body ng-controller="MyCtrl">
     <div>{{ appTitle }}</div>
@@ -39,15 +40,34 @@
     </div>
 
     <hr />
+    <div class="text-center">
+      <span class="btn btn-danger" ng-click="changePage('inc01')"
+        >多选框全选演示</span
+      >
+      <span class="btn btn-danger" ng-click="changePage('inc02')"
+        >单选按钮演示</span
+      >
+      <span ng-bind="inc"></span>
+    </div>
+    <!--
+      ng-include里面的值不带'号表示动态include，通过scope中的变量控制
+      ng-include="'inc.html'"表示直接包含inc.html这个页面
+      ng-include="inc"表示包含由inc变量对应的页面
+    -->
+    <div class="myinc"><div ng-include="inc" class="myani"></div></div>
 
     <script src="lib/js/jquery.min.js"></script>
     <script src="lib/js/bootstrap.min.js"></script>
     <script src="lib/js/angular.min.js"></script>
+    <!-- <script src="lib/js/angular-route.min.js"></script> -->
+    <script src="lib/js/angular-messages.min.js"></script>
+    <script src="lib/js/angular-animate.min.js"></script>
     <script src="lib/js/angular-sanitize.min.js"></script>
     <script src="app/js/init.js"></script>
     <!-- 业务逻辑js开始 -->
     <script src="app/js/ng005.js"></script>
     <script src="app/js/ng005-01.js"></script>
+    <script src="app/js/ng005-02.js"></script>
     <!-- 业务逻辑js结束 -->
     <script src="app/js/startup.js"></script>
   </body>

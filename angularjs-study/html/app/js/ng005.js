@@ -23,5 +23,7 @@ angular.element(document).ready(function() {
     $scope.changePage = function(page) {
       $scope.inc = includes[page];
     };
+    //默认页面
+    $scope.changePage('inc01');
   }
 });

@@ -7,7 +7,13 @@
     angular.module('controllers', []);
 
     //初始化app
-    var app = angular.module(window.myappname, ['ngSanitize', 'controllers']);
+    var app = angular.module(window.myappname, [
+      'ngSanitize',
+      'ngAnimate',
+      // 'ngRoute',
+      'ngMessages',
+      'controllers'
+    ]);
 
     //配置日志是否开启debug================================================================
     app.config([

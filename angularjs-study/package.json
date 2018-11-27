@@ -6,6 +6,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "angular": "^1.7.5",
+    "angular-animate": "^1.7.5",
+    "angular-messages": "^1.7.5",
+    "angular-route": "^1.7.5",
     "angular-sanitize": "^1.7.5",
     "bootstrap3": "^3.3.5",
     "jquery": "^3.3.1"
