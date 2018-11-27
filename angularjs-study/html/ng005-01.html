@@ -1,3 +1,26 @@
-<div ng-controller="MyCtrl01">
+<div ng-controller="MyCtrl01" class="ng005-01">
   <h1 class="text-center bg-danger"><span ng-bind="welcome"></span></h1>
+  <div class="div-main">
+    <div class="form-group-lg">
+      <label class="checkbox-inline">
+        <input type="checkbox" ng-model="checkAll" ng-change="doCheckAll()"/>全选
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" ng-click="doCheckRev()" />反选
+      </label>
+      <hr>
+      <!-- 
+        通过表达式结果控制class
+        ng-class="{true:'后面逻辑表达式为true的样式',false:'为true的样式'}[逻辑表达式]"
+       -->
+      <label class="checkbox-inline" ng-repeat="d in datas" title="{{d.title}}" 
+        ng-class="{true:'selected-label'}[d.selected]">
+        <input type="checkbox" ng-model="d.selected"/><span ng-bind="d.info"></span>
+      </label>
+    </div>
+    <hr>
+    <div>
+      选中的值：<span ng-bind="selectedIds()"></span>
+    </div>
+  </div>
 </div>
