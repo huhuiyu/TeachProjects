@@ -14,9 +14,7 @@
   <body ng-controller="MyCtrl">
     <div>{{ appTitle }}</div>
     <div>
-      <label> 
-        <input type="checkbox" ng-model="mycheck" /> 是否显示？ 
-      </label>
+      <label> <input type="checkbox" ng-model="mycheck" /> 是否显示？ </label>
       {{ mycheck }}
     </div>
     <!--
@@ -27,12 +25,20 @@
     <hr />
     <div ng-if="mycheck" class="bg-primary">选中了会显示出来</div>
     <div ng-if="!mycheck" class="bg-danger">选中了不会显示出来</div>
+    <!--
+      ng-show和ng-hide
+      ng-show="逻辑值或者逻辑表达式"，值为true显示，false隐藏
+      ng-hide="逻辑值或者逻辑表达式"，值为true隐藏，false显示
+    -->
+    <div ng-show="mycheck" class="bg-primary">ng-show</div>
+    <div ng-hide="mycheck" class="bg-danger">ng-hide</div>
 
     <div>
       <label for="cvalue">checkbox和ng-value配合</label>
-      <input type="checkbox" id="cvalue">
-      {{cvalue}}
+      <input type="checkbox" id="cvalue" /> {{ cvalue }}
     </div>
+
+    <hr />
 
     <script src="lib/js/jquery.min.js"></script>
     <script src="lib/js/bootstrap.min.js"></script>
@@ -41,6 +47,7 @@
     <script src="app/js/init.js"></script>
     <!-- 业务逻辑js开始 -->
     <script src="app/js/ng005.js"></script>
+    <script src="app/js/ng005-01.js"></script>
     <!-- 业务逻辑js结束 -->
     <script src="app/js/startup.js"></script>
   </body>

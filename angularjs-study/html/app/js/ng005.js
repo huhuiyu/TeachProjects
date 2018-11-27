@@ -13,7 +13,15 @@ angular.element(document).ready(function() {
     //checkbox的数据
     $scope.mycheck = true;
     $scope.cvalue = 'cv';
-
-
+    // 页面映射
+    var includes = {
+      inc01: 'ng005-01.html',
+      inc02: 'ng005-02.html'
+    };
+    $scope.inc = '';
+    // 切换包含页面
+    $scope.changePage = function(page) {
+      $scope.inc = includes[page];
+    };
   }
 });
