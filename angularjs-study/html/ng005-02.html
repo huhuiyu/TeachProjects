@@ -1,3 +1,23 @@
-<div ng-controller="MyCtrl02">
+<div ng-controller="MyCtrl02" class="ng005-02">
   <h1 class="text-center bg-danger"><span ng-bind="welcome"></span></h1>
+  <div class="div-main">
+    <div class="form-group">
+      <label class="radio-inline">
+        <input type="radio" ng-checked="sex=='m'" ng-click="sex='m'" name="sex" />男神
+      </label>
+      <label class="radio-inline">
+        <input type="radio" ng-checked="sex=='f'" ng-click="sex='f'" name="sex" />女神
+      </label>
+      <span ng-bind="sex"></span>
+    </div>
+    <hr />
+    <div class="form-group">
+      <!-- ng-repeat="集合中的值 in 集合" $.each(集合,function(迭代索引,集合中的值){})-->
+      <label class="radio-inline" ng-repeat="e in edus">
+        <input type="radio" name="edu" ng-click="changeEdu(e.eid);" ng-checked="edu==e.eid" />
+        <span ng-bind="e.name"></span>
+      </label>
+      <span ng-bind="edu"></span>
+    </div>
+  </div>
 </div>
