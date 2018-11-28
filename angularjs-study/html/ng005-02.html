@@ -19,5 +19,28 @@
       </label>
       <span ng-bind="edu"></span>
     </div>
+    <div class="form-group">
+      <label>
+        学历：
+        <select ng-model="edu">
+          <option ng-repeat="e in edus" ng-value="e.eid" ng-bind="e.name"></option>
+        </select>
+      </label>
+    </div>
+    <table class="table table-bordered">
+      <tr ng-repeat="e in edus">
+        <td>
+          <span ng-bind="e.eid"></span>
+        </td>
+        <td>
+          <span ng-bind="e.name"></span>
+        </td>
+        <td>
+          <input type="checkbox" disabled ng-checked="e.eid==edu">
+          <span ng-if="e.eid==edu">选中</span>
+          <span ng-if="e.eid!=edu">未选中</span>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
