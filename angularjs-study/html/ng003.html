@@ -12,13 +12,19 @@
       <div class="jumbotron text-center">
         <div class="h1" ng-bind="welcome"></div>
         <div style="width:30%;margin:0px auto;">
-          <!-- mvvm框架完美的地方就在于提供了模板来呈现数据，对美工没有破坏和侵入 -->
+          <!--
+            mvvm框架完美的地方就在于提供了模板来呈现数据，对美工没有破坏和侵入
+          -->
           <select ng-model="selectId" class="form-control">
             <!-- ng-value可以绑定元素的value值，表单元素特有 -->
-            <option ng-repeat="d in list" ng-value="d.id" ng-bind="d.name"></option>
+            <option
+              ng-repeat="d in list"
+              ng-value="d.id"
+              ng-bind="d.name"
+            ></option>
           </select>
         </div>
-        <div>选择的学历id:{{selectId}}</div>
+        <div>选择的学历id:{{ selectId }}</div>
       </div>
     </div>
 
@@ -31,12 +37,14 @@
     <script src="lib/js/angular-messages.min.js"></script>
     <script src="lib/js/angular-animate.min.js"></script>
     <script src="lib/js/angular-sanitize.min.js"></script>
-    
+
     <!-- 然后是初始化 -->
     <script src="app/js/init.js"></script>
     <!-- 然后是业务逻辑 -->
     <script src="app/js/ng003.js"></script>
     <!-- 然后是ng绑定启动 -->
     <script src="app/js/startup.js"></script>
+
   </body>
 </html>
+!

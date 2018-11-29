@@ -5,6 +5,8 @@
   $(function() {
     //ng初始化控制器模块
     angular.module('controllers', []);
+    //ng初始化服务模块
+    angular.module('services', []);
 
     //初始化app
     var app = angular.module(window.myappname, [
@@ -12,7 +14,8 @@
       'ngAnimate',
       // 'ngRoute',
       'ngMessages',
-      'controllers'
+      'controllers',
+      'services'
     ]);
 
     //配置日志是否开启debug================================================================
