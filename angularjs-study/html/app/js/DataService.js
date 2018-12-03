@@ -64,6 +64,21 @@ angular.element(document).ready(function() {
       );
     };
 
+    //获取图片校验码地址
+    service.getValidateImage = function() {
+      //添加token
+      var imaurl = serverBaseUrl + '/util/validate.jpg?token=' + loadToken();
+      //添加时间戳
+      imaurl = imaurl + '&ts=' + new Date().getTime();
+      $log.debug(imaurl);
+      return imaurl;
+    };
+
+    //获取token值
+    service.getToken=function(){
+      return loadToken();
+    };
+
     return service;
   }
 });

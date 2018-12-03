@@ -1,12 +1,6 @@
 angular.element(document).ready(function() {
   var ctrls = angular.module('controllers');
-  ctrls.controller('MyCtrl', [
-    '$scope',
-    '$log',
-    'TestService',
-    'DataService',
-    MyCtrl
-  ]);
+  ctrls.controller('MyCtrl', ['$scope', '$log', 'TestService', 'DataService', MyCtrl]);
 
   function MyCtrl($scope, $log, TestService, DataService) {
     $log.debug('in MyCtrl init...');
@@ -36,9 +30,40 @@ angular.element(document).ready(function() {
     $scope.formdata = {};
 
     $scope.login = function() {
-      DataService.send('/user/login', { user: $scope.formdata }, function(
-        data
-      ) {
+      DataService.send('/user/login', { user: $scope.formdata }, function(data) {
+        $scope.result = data;
+      });
+    };
+
+    $scope.getUserInfo = function() {
+      DataService.send('/user/getUserInfo', {}, function(data) {
+        $scope.result = data;
+      });
+    };
+
+    $scope.logout = function() {
+      DataService.send('/user/logout', {}, function(data) {
+        $scope.result = data;
+      });
+    };
+
+    //图片校验码
+    $scope.changeImage = function() {
+      var token = DataService.getToken();
+      //token不存在就发起请求获取
+      if (!token) {
+        DataService.send('/', {}, function(data) {
+          $scope.imgcode = DataService.getValidateImage();
+        });
+        return;
+      }
+      $scope.imgcode = DataService.getValidateImage();
+    };
+
+    $scope.changeImage();
+
+    $scope.doImgCheck = function() {
+      DataService.send('/test/imageCode', { imageCode: $scope.checkimgcode }, function(data) {
         $scope.result = data;
       });
     };

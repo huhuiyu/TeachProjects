@@ -11,30 +11,26 @@
   <body>
     <div ng-controller="MyCtrl" class="ng006">
       <div>
-        <label>
-          <input type="checkbox" ng-model="showsub" />
-          <span>是否显示子页面</span>
-        </label>
+        <label> <input type="checkbox" ng-model="showsub" /> <span>是否显示子页面</span> </label>
       </div>
       <div ng-if="showsub" ng-include="'ng006-inc.html'"></div>
       <hr />
-      <div class="text-center">
-        <span class="btn btn-danger" ng-click="sendOne();">请求一</span>
-      </div>
+      <div class="text-center"><span class="btn btn-danger" ng-click="sendOne();">请求一</span></div>
       <div>应答结果：<span ng-bind="result"></span></div>
       <hr />
       <div class="myform">
-        <div class="form-group">
-          <input type="text" ng-model="formdata.username"
-            class="form-control" placeholder="输入用户名"/>
-        </div>
-        <div class="form-group">
-          <input type="password" ng-model="formdata.password"
-            class="form-control" placeholder="输入密码"/>
-        </div>
-        <div class="text-center">
-          <span class="btn btn-primary" ng-click="login();">登录</span>
-          <span class="btn btn-primary" ng-click="formdata={};">重填</span>
+        <div class="form-group"><input type="text" ng-model="formdata.username" class="form-control" placeholder="输入用户名" /></div>
+        <div class="form-group"><input type="password" ng-model="formdata.password" class="form-control" placeholder="输入密码" /></div>
+        <div class="text-center"><span class="btn btn-primary" ng-click="login();">登录</span> <span class="btn btn-primary" ng-click="formdata={};">重填</span></div>
+      </div>
+      <hr />
+      <div class="text-center"><span class="btn btn-primary" ng-click="getUserInfo();">获取用户信息</span> <span class="btn btn-primary" ng-click="logout();">安全退出</span></div>
+      <hr />
+      <div><img ng-src="{{imgcode}}" alt="" ng-click="changeImage()" /> <a href="javascript:void(0);" ng-click="changeImage()">看不清楚，更换一张</a></div>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" ng-model="checkimgcode" placeholder="请输入图片校验码" class="form-control" /> 
+          <span class="input-group-addon btn btn-primary" ng-click="doImgCheck();">确定</span>
         </div>
       </div>
     </div>
