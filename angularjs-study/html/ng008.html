@@ -9,7 +9,11 @@
   </head>
   <body>
     <div ng-controller="MyCtrl">
-      
+      <span class="btn btn-primary" ng-click="cancelHideDiv();">取消延时消失</span>
+      <div ng-if="showDiv">延时消失</div>
+      <div>
+        <span>当前时间：</span><span ng-bind="nowtime"></span>
+      </div>
     </div>
 
     <script src="lib/js/jquery.min.js"></script>
