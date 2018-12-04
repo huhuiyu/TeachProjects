@@ -14,6 +14,24 @@
       <div>
         <span>当前时间：</span><span ng-bind="nowtime"></span>
       </div>
+      <div>
+        <span class="btn btn-primary" ng-click="changeLocation()">更改地址</span><br>
+        location信息：<span ng-bind="locInfo"></span>
+      </div>
+      <hr>
+      <div>
+        <ul class="nav nav-tabs">
+          <li role="presentation" ng-class="{true:'active'}[tab==1]">
+            <a href="javascript:void(0);" ng-click="tab=1">首页</a>
+          </li>
+          <li role="presentation" ng-class="{true:'active'}[tab==2]">
+            <a href="javascript:void(0);" ng-click="tab=2">springboot</a>
+          </li>
+          <li role="presentation" ng-class="{true:'active'}[tab==3]">
+            <a href="javascript:void(0);" ng-click="tab=3">angularjs</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <script src="lib/js/jquery.min.js"></script>

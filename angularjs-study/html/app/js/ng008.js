@@ -1,15 +1,15 @@
 (function() {
   angular.element(document).ready(function() {
     var ctrls = angular.module('controllers');
-    ctrls.controller('MyCtrl', ['$scope', '$log', '$timeout', '$interval', MyCtrl]);
+    ctrls.controller('MyCtrl', ['$scope', '$log', '$timeout', '$interval', '$location', MyCtrl]);
 
-    function MyCtrl($scope, $log, $timeout, $interval) {
+    function MyCtrl($scope, $log, $timeout, $interval, $location) {
       $log.debug('in MyCtrl init...');
 
       // 处理scope销毁
       $scope.$on('$destroy', function() {
         //如果开启了定时任务，一定要在控制器销毁时中断！！！！
-        if($scope.timer){
+        if ($scope.timer) {
           $interval.cancel($scope.timer);
         }
         $log.debug('MyCtrl destroy...');
@@ -57,6 +57,35 @@
       $scope.timer = $interval(function() {
         $scope.nowtime = getNowTime();
       }, 1000);
+
+      //$location就是js中location对象封装，并且提供了路由的支持
+      //http://127.0.0.1:30000/ng008.html#!/sadf?abc=def&hh=11#abc
+      //path()是读取和设置路由地址(就是/sadf)
+      //absUrl()是读写完整url地址
+      //url()是带查询参数的路由地址(就是#符号后面的地址)
+      //search()是?后面的查询字符串对应的json对象
+      //hash()是锚点信息，就是#符号后面，由于锚点已经是路由标志，所以要在路由后再次添加
+      $scope.locInfo = {
+        path: $location.path(),
+        absUrl: $location.absUrl(),
+        url: $location.url(),
+        qs: $location.search(),
+        hash: $location.hash()
+      };
+
+      $scope.changeLocation = function() {
+        //由于切换path就会触发页面（或者路由）跳转，所以修改path必须是最后动作
+        $location.search({ name: 'admin', password: 'pwd-123', ids: [1, 2, 3] });
+        $location.hash('abc123');
+        $location.path('/abc/def');
+      };
+
+      //切换tab===============
+      $scope.changeTab = function(tab) {
+        $scope.tab = tab;
+      };
+
+      $scope.changeTab(1);
     }
   });
 })();
