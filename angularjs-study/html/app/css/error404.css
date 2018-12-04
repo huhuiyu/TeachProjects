@@ -1,0 +1,14 @@
+.error .main {
+  width: 600px;
+  margin: 0px auto;
+}
+
+.error .main img {
+  width: 100%;
+}
+
+.error .bg-div {
+  width: 990px;
+  height: 440px;
+  background-image: url('../../images/404.jpg');
+}

@@ -4,30 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>路由</title>
+    <title>常用服务</title>
     <link rel="stylesheet" href="lib/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="app/css/error404.css">
   </head>
   <body>
-    <div>
-      <a href="#!/">首页</a>
-      <a href="#!/main">其它页</a>
-      <a href="#!/nothing">不存在的页面</a>
+    <div ng-controller="MyCtrl">
+      
     </div>
-
-    <!-- ng-view就是切换路由的视图 -->
-    <div ng-view></div>
 
     <script src="lib/js/jquery.min.js"></script>
     <script src="lib/js/bootstrap.min.js"></script>
     <script src="lib/js/angular.min.js"></script>
-    <script src="lib/js/angular-route.min.js"></script>
+    <script src="lib/js/angular-sanitize.min.js"></script>
     <script src="lib/js/angular-messages.min.js"></script>
     <script src="lib/js/angular-animate.min.js"></script>
-    <script src="lib/js/angular-sanitize.min.js"></script>
-    <script src="app/js/init-route.js"></script>
-    <script src="app/js/route/IndexCtrl.js"></script>
-    <script src="app/js/route/MainCtrl.js"></script>
+    <script src="app/js/init.js"></script>
+    <script src="app/js/ng008.js"></script>
     <script src="app/js/startup.js"></script>
   </body>
 </html>

@@ -110,6 +110,7 @@
         //路由配置，when，第一个参数是地址栏的路径，
         //第二个是配置项，templateUrl是显示在ng-view里面的页面
         //http://127.0.0.1:30000/ng007.html#!/main
+        //otherwise：当所有的when都不匹配的时候生效
         $routeProvider
           .when('', {
             templateUrl: '/route/index.html'
@@ -120,7 +121,8 @@
           .when('/main', {
             templateUrl: '/route/main.html'
           })
-          .otherwise({ templateUrl: '/route/index.html' });
+          .otherwise({ templateUrl: '/route/error404.html' });
+        //.otherwise({ templateUrl: '/route/index.html' });
       }
     ]);
   });
