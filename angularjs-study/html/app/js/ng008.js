@@ -8,6 +8,10 @@
 
       // 处理scope销毁
       $scope.$on('$destroy', function() {
+        //如果开启了定时任务，一定要在控制器销毁时中断！！！！
+        if($scope.timer){
+          $interval.cancel($scope.timer);
+        }
         $log.debug('MyCtrl destroy...');
       });
 
@@ -47,7 +51,12 @@
 
       $scope.nowtime = getNowTime();
 
-      
+      // $interval就是js里面的setInterval，区别一样是可以更新状态
+      // 第一个参数定时执行的function，第二个参数是时间间隔
+      // 返回值也是用户清除timer的id
+      $scope.timer = $interval(function() {
+        $scope.nowtime = getNowTime();
+      }, 1000);
     }
   });
 })();
