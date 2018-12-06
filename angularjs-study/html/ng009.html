@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义指令-directive</title>
+  <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+</head>
+<body>
+  <div my-directive></div>
+  <div ng-controller="MyCtrl">
+    <label>
+      <input type="checkbox" ng-model="showMyDirective">
+      是否显示下面的指令元素
+    </label>
+    <!-- 指令是通过页面调用，这就是ng-开头指令的实现原理 -->
+    <span my-directive class="bg-danger" ng-if="showMyDirective"></span>
+    <span show-time class="bg-primary"></span>
+  </div>
+  
+  <script src="lib/js/jquery.min.js"></script>
+  <script src="lib/js/bootstrap.min.js"></script>
+  <script src="lib/js/angular.min.js"></script>
+  <script src="lib/js/angular-sanitize.min.js"></script>
+  <script src="lib/js/angular-animate.min.js"></script>
+  <script src="lib/js/angular-messages.min.js"></script>
+  <script src="app/js/init.js"></script>
+
+  <script src="app/js/MyDirective.js"></script>
+  <script src="app/js/ng009.js"></script>
+
+  <script src="app/js/startup.js"></script>
+</body>
+</html>
