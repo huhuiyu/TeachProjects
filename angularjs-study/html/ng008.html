@@ -21,16 +21,13 @@
       <hr>
       <div>
         <ul class="nav nav-tabs">
-          <li role="presentation" ng-class="{true:'active'}[tab==1]">
-            <a href="javascript:void(0);" ng-click="tab=1">首页</a>
-          </li>
-          <li role="presentation" ng-class="{true:'active'}[tab==2]">
-            <a href="javascript:void(0);" ng-click="tab=2">springboot</a>
-          </li>
-          <li role="presentation" ng-class="{true:'active'}[tab==3]">
-            <a href="javascript:void(0);" ng-click="tab=3">angularjs</a>
+          <li role="presentation" ng-repeat="t in tabs"
+            ng-class="{true:'active'}[selectedTab.id==t.id]">
+            <a href="javascript:void(0);" 
+              ng-click="changeTab(t);">{{t.title}}</a>
           </li>
         </ul>
+        <div ng-include="selectedTab.page"></div>
       </div>
     </div>
 
