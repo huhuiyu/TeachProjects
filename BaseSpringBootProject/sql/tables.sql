@@ -43,3 +43,15 @@ create table TbTokenInfo
   lastupdate timestamp comment '令牌信息最后更新时间',
   constraint pkTbTokenInfo primary key(token,infoKey)
 );
+
+/* 页面信息 */
+create table TbPageInfo
+(
+  pid int auto_increment primary key comment '主键',
+  title varchar(50) not null comment '页面标题',
+  info varchar(200) not null comment '页面描述信息',
+  tel varchar(20) not null comment '联系电话',
+  copyright varchar(200) not null comment '版权信息',
+  comname varchar(200) not null comment '公司名称',
+  lastupdate timestamp comment '最后更新时间'
+);

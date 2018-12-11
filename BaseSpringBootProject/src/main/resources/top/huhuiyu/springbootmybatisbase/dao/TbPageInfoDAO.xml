@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- TbPageInfo mapper -->
+<mapper namespace="top.huhuiyu.springbootmybatisbase.dao.TbPageInfoDAO">
+  <select id="queryAll" resultType="TbPageInfo">
+    select pid,title,info,tel,copyright,comname,lastupdate from TbPageInfo
+  </select>
+  <select id="queryAll_COUNT" resultType="int">
+    select count(*) from TbPageInfo
+  </select>
+  <select id="queryByKey" parameterType="TbPageInfo" resultType="TbPageInfo">
+    select pid,title,info,tel,copyright,comname,lastupdate from TbPageInfo
+  </select>
+  <insert id="add" parameterType="TbPageInfo" useGeneratedKeys="true" keyProperty="pid">
+    insert into TbPageInfo(title,info,tel,copyright,comname,lastupdate)
+    values(#{title},#{info},#{tel},#{copyright},#{comname},now())
+  </insert>
+  <update id="modify" parameterType="TbPageInfo">
+    update TbPageInfo
+    set title=#{title},info=#{info},tel=#{tel},copyright=#{copyright},comname=#{comname},lastupdate=now()
+    where pid=#{pid}
+  </update>
+  <delete id="delete" parameterType="TbPageInfo">
+    delete from TbPageInfo where pid=#{pid}
+  </delete>
+</mapper>
