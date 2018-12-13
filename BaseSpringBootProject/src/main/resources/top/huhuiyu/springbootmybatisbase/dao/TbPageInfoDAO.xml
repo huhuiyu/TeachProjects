@@ -12,6 +12,7 @@
   </select>
   <select id="queryByKey" parameterType="TbPageInfo" resultType="TbPageInfo">
     select pid,title,info,tel,copyright,comname,lastupdate from TbPageInfo
+    where pid=#{pid}
   </select>
   <insert id="add" parameterType="TbPageInfo" useGeneratedKeys="true" keyProperty="pid">
     insert into TbPageInfo(title,info,tel,copyright,comname,lastupdate)
