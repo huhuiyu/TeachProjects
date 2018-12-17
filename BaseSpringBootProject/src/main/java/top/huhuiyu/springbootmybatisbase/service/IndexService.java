@@ -4,7 +4,7 @@ import top.huhuiyu.springbootmybatisbase.model.IndexModel;
 import top.huhuiyu.springbootmybatisbase.utils.JsonMessage;
 
 /**
- * -首页服务
+ * 首页服务
  * 
  * @author DarkKnight
  *
@@ -12,11 +12,11 @@ import top.huhuiyu.springbootmybatisbase.utils.JsonMessage;
 public interface IndexService {
 
   /**
-   * -首页echo
+   * 首页
    * 
-   * @param model
-   * @return
-   * @throws Exception
+   * @param model 页面数据
+   * @return 应答结果
+   * @throws Exception 处理发生异常
    */
   JsonMessage index(IndexModel model) throws Exception;
 }

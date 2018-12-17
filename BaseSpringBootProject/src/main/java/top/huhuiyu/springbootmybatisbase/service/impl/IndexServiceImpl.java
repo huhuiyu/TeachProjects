@@ -10,6 +10,7 @@ import top.huhuiyu.springbootmybatisbase.service.IndexService;
 import top.huhuiyu.springbootmybatisbase.utils.JsonMessage;
 
 /**
+ * 首页服务层实现
  * 
  * @author DarkKnight
  *

@@ -5,7 +5,7 @@ import org.springframework.core.convert.converter.Converter;
 import top.huhuiyu.springbootmybatisbase.utils.MyUtils;
 
 /**
- * -字符串转换器（去空）
+ * 字符串转换器（去空）
  * 
  * @author DarkKnight
  *

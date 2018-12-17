@@ -8,4 +8,63 @@
   <select id="queryTime" resultType="java.util.Date">
     select now()
   </select>
+  <!-- 查询token（且要有效） -->
+  <select id="queryToken" parameterType="TbToken" resultType="TbToken">
+    select token,lastupdate from TbToken
+    where token=#{token} and timestampdiff(minute,lastupdate,now())
+    &lt;=
+    (select configValue from TbConfig where configKey='token.timeout')
+  </select>
+
+  <!-- 添加token -->
+  <insert id="addToken" parameterType="TbToken">
+    insert into TbToken(token,lastupdate) values(#{token},now())
+  </insert>
+
+  <!-- 更新token时间 -->
+  <update id="updateToken" parameterType="TbToken">
+    update TbToken set lastupdate=now() where token=#{token}
+  </update>
+
+  <!-- 删除所有过期token -->
+  <delete id="deleteTokens">
+    delete from TbToken where timestampdiff(minute,lastupdate,now())
+    &gt;
+    (select configValue from TbConfig where configKey='token.timeout')
+  </delete>
+
+  <!-- 删除所有过期的TokenInfo -->
+  <delete id="deleteTokenInfos">
+    delete from TbTokenInfo
+    where token in
+    (
+    select token from TbToken
+    where timestampdiff(minute,lastupdate,now())
+    &gt;
+    (
+    select configValue from TbConfig
+    where configKey='token.timeout'
+    )
+    )
+  </delete>
+
+  <!-- 图片校验码相关 -->
+  <insert id="addImageCode" parameterType="TbTokenInfo">
+    insert into TbTokenInfo(token,infoKey,info,lastupdate)
+    values(#{token},'imagecode',#{info},now())
+  </insert>
+
+  <select id="queryImageCode" parameterType="TbTokenInfo" resultType="TbTokenInfo">
+    select token,infoKey,info,lastupdate from TbTokenInfo
+    where token=#{token} and infoKey='imagecode'
+  </select>
+
+  <update id="updateImageCode" parameterType="TbTokenInfo">
+    update TbTokenInfo set info=#{info},lastupdate=now()
+    where token=#{token} and infoKey='imagecode'
+  </update>
+
+  <delete id="deleteImageCode" parameterType="TbTokenInfo">
+    delete from TbTokenInfo where token=#{token} and infoKey='imagecode'
+  </delete>
 </mapper>

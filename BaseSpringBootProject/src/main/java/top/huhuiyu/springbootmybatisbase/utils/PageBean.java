@@ -5,7 +5,7 @@ import com.github.pagehelper.Page;
 import top.huhuiyu.springbootmybatisbase.base.BaseEntity;
 
 /**
- * -分页信息
+ * 分页信息
  * 
  * @author DarkKnight
  *
@@ -22,9 +22,9 @@ public class PageBean extends BaseEntity {
   }
 
   /**
-   * -设置分页信息
+   * 设置分页信息
    * 
-   * @param page
+   * @param page 分页插件查询信息
    */
   public void setPageInfo(Page<?> page) {
     pageCount = page.getPages();

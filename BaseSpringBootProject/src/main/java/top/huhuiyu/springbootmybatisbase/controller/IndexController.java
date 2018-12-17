@@ -9,7 +9,7 @@ import top.huhuiyu.springbootmybatisbase.service.IndexService;
 import top.huhuiyu.springbootmybatisbase.utils.JsonMessage;
 
 /**
- * -首页
+ * 首页
  * 
  * @author DarkKnight
  *
@@ -21,7 +21,7 @@ public class IndexController {
 
   @RequestMapping("")
   public JsonMessage index(IndexModel model) throws Exception {
-    // / {"echo":"abc-123"}
+    // {"echo":"abc-123"}
     return indexService.index(model);
   }
 }

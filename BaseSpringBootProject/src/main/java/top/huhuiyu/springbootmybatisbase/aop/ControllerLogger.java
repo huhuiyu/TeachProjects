@@ -10,14 +10,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * -控制器日志切面
+ * 控制器日志切面
  * 
  * @author DarkKnight
  *
  */
 @Aspect
 @Component
-public class ControllerLogger extends AppPointCut {
+public class ControllerLogger extends BaseControllerAop {
 
   private static final Logger log = LoggerFactory.getLogger(ControllerLogger.class);
 

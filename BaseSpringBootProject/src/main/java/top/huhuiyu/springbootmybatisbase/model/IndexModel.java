@@ -3,7 +3,7 @@ package top.huhuiyu.springbootmybatisbase.model;
 import top.huhuiyu.springbootmybatisbase.base.BaseModel;
 
 /**
- * -首页model层
+ * 首页model层
  * 
  * @author DarkKnight
  *

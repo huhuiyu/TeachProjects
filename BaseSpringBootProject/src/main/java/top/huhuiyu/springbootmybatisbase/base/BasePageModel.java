@@ -3,7 +3,7 @@ package top.huhuiyu.springbootmybatisbase.base;
 import top.huhuiyu.springbootmybatisbase.utils.PageBean;
 
 /**
- * -带分页信息的model基类
+ * 带分页信息的model基类
  * 
  * @author DarkKnight
  *

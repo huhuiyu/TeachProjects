@@ -14,7 +14,7 @@ import top.huhuiyu.springbootmybatisbase.service.UtilService;
 import top.huhuiyu.springbootmybatisbase.utils.ImageCode;
 
 /**
- * -工具类控制器
+ * 工具类控制器
  * 
  * @author DarkKnight
  *

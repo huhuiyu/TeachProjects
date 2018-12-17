@@ -4,7 +4,7 @@ import top.huhuiyu.springbootmybatisbase.entity.TbToken;
 import top.huhuiyu.springbootmybatisbase.entity.TbTokenInfo;
 
 /**
- * -model层基类
+ * model层基类
  * 
  * @author DarkKnight
  *
@@ -25,9 +25,9 @@ public abstract class BaseModel extends BaseEntity {
   }
 
   /**
-   * -获取token的委托方法
+   * 获取token的委托方法
    * 
-   * @return
+   * @return TbToken信息
    */
   public TbToken makeTbToken() {
     TbToken tbToken = new TbToken();
@@ -36,9 +36,9 @@ public abstract class BaseModel extends BaseEntity {
   }
 
   /**
-   * -获取tokeninfo的委托方法
+   * 获取tokeninfo的委托方法
    * 
-   * @return
+   * @return TbTokenInfo信息
    */
   public TbTokenInfo makeTbTokenInfo() {
     TbTokenInfo tokenInfo = new TbTokenInfo();

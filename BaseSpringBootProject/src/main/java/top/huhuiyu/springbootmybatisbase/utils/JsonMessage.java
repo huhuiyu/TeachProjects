@@ -14,10 +14,12 @@ import top.huhuiyu.springbootmybatisbase.base.BaseEntity;
 public class JsonMessage extends BaseEntity {
 
   private static final long serialVersionUID = 6263151224945333453L;
+  public static final int OK = 200;
+  public static final int ERROR = 500;
   /**
    * code:服务器应答代码，200为正确，500为错误，其它为自定义，默认500
    */
-  private int code = 500;
+  private int code = ERROR;
   /**
    * message：服务器应答信息，默认为空
    */
@@ -32,10 +34,10 @@ public class JsonMessage extends BaseEntity {
   private boolean success = false;
 
   /**
-   * -服务器token信息
+   * 服务器token信息
    */
   private String token;
-  
+
   public String getToken() {
     return token;
   }
@@ -45,12 +47,12 @@ public class JsonMessage extends BaseEntity {
   }
 
   /**
-   * getMessage：静态工厂方法，获取一个JsonMessage的实例
+   * 静态工厂方法，获取一个JsonMessage的实例
    * 
    * @param success 是否成功应答
    * @param code    服务器应答code
    * @param message 服务器应答信息
-   * @return
+   * @return JsonMessage的实例
    */
   public static JsonMessage getMessage(boolean success, int code, String message) {
     JsonMessage json = new JsonMessage();
@@ -61,22 +63,22 @@ public class JsonMessage extends BaseEntity {
   }
 
   /**
-   * getSuccess：委托方法，获取成功的应答
+   * 委托方法，获取成功的应答
    * 
    * @param message 成功的消息
-   * @return
+   * @return JsonMessage的实例
    */
   public static JsonMessage getSuccess(String message) {
     // 成功应答的success为ture，code为200
-    return JsonMessage.getMessage(true, 200, message);
+    return JsonMessage.getMessage(true, OK, message);
   }
 
   /**
-   * getFail：委托方法，获取指定错误code的失败应答
+   * 委托方法，获取指定错误code的失败应答
    * 
-   * @param code
-   * @param message
-   * @return
+   * @param code    错误代码
+   * @param message 错误消息
+   * @return JsonMessage的实例
    */
   public static JsonMessage getFail(int code, String message) {
     // 指定code的错误应答
@@ -84,13 +86,25 @@ public class JsonMessage extends BaseEntity {
   }
 
   /**
-   * getFail：错误应答的委托方法
+   * 错误应答的委托方法
    * 
-   * @param message
-   * @return
+   * @param message 错误消息
+   * @return JsonMessage的实例
    */
   public static JsonMessage getFail(String message) {
-    return JsonMessage.getMessage(false, 500, message);
+    return JsonMessage.getMessage(false, ERROR, message);
+  }
+
+  /**
+   * 放置应答数据
+   * 
+   * @param key  应答key
+   * @param data 应答数据
+   * @return 当前实例
+   */
+  public JsonMessage putData(String key, Object data) {
+    datas.put(key, data);
+    return this;
   }
 
   public JsonMessage() {

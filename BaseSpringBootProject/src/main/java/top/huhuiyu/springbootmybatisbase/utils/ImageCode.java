@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 /**
- * -图片校验码工具
+ * 图片校验码工具
  *
  * @author DarkKnight
  *
@@ -30,19 +30,19 @@ public class ImageCode {
   }
 
   /**
-   * -生成默认长度的随机字符
+   * 生成默认长度的随机字符
    *
-   * @return
+   * @return 默认长度的随机字符
    */
   public static String makeCode() {
     return makeCode(LENGTH);
   }
 
   /**
-   * -生成指定长度的随机字符
+   * 生成指定长度的随机字符
    *
-   * @param length
-   * @return
+   * @param length 随机字符长度
+   * @return 指定长度的随机字符
    */
   public static String makeCode(int length) {
     length = length < LENGTH ? LENGTH : length;
@@ -55,10 +55,10 @@ public class ImageCode {
   }
 
   /**
-   * -绘制code对应的图片
+   * 绘制code对应的图片
    *
-   * @param code
-   * @return
+   * @param code 图片code
+   * @return code对应的图片
    */
   public static BufferedImage makeImage(String code) {
     // 绘图高度
